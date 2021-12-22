@@ -17,5 +17,8 @@ dependencyResolutionManagement {
         mavenCentral()
     }
 }
+
+enableFeaturePreview("VERSION_CATALOGS")
+
 rootProject.name = "Baka For AniList"
 include(":app")
