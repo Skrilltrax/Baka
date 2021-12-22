@@ -13,3 +13,4 @@ dependencyResolutionManagement {
 }
 
 include("android-plugins")
+include("kotlin-plugins")
