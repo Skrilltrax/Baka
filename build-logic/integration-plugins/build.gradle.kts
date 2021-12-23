@@ -17,4 +17,4 @@ tasks.withType<KotlinCompile>().configureEach {
   kotlinOptions { jvmTarget = JavaVersion.VERSION_11.toString() }
 }
 
-dependencies { implementation(libs.build.agp) }
+dependencies { implementation(libs.build.dependencyanalysis) }

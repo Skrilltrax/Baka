@@ -6,28 +6,28 @@ import org.gradle.kotlin.dsl.withType
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 val additionalCompilerArgs =
-    listOf(
-        "-Xopt-in=kotlin.RequiresOptIn",
-        "-P",
-        "plugin:androidx.compose.compiler.plugins.kotlin:suppressKotlinVersionCompatibilityCheck=true",
-    )
+  listOf(
+    "-Xopt-in=kotlin.RequiresOptIn",
+    "-P",
+    "plugin:androidx.compose.compiler.plugins.kotlin:suppressKotlinVersionCompatibilityCheck=true",
+  )
 
 tasks.withType<JavaCompile>().configureEach {
-    sourceCompatibility = JavaVersion.VERSION_11.toString()
-    targetCompatibility = JavaVersion.VERSION_11.toString()
+  sourceCompatibility = JavaVersion.VERSION_11.toString()
+  targetCompatibility = JavaVersion.VERSION_11.toString()
 }
 
 tasks.withType<KotlinCompile>().configureEach {
-    kotlinOptions {
-        allWarningsAsErrors = true
-        jvmTarget = JavaVersion.VERSION_11.toString()
-        freeCompilerArgs = freeCompilerArgs + additionalCompilerArgs
-        languageVersion = "1.5"
-    }
+  kotlinOptions {
+    allWarningsAsErrors = true
+    jvmTarget = JavaVersion.VERSION_11.toString()
+    freeCompilerArgs = freeCompilerArgs + additionalCompilerArgs
+    languageVersion = "1.6"
+  }
 }
 
 tasks.withType<Test>().configureEach {
-    maxParallelForks = Runtime.getRuntime().availableProcessors() * 2
-    testLogging { events(TestLogEvent.PASSED, TestLogEvent.SKIPPED, TestLogEvent.FAILED) }
-    doNotTrackState("We want tests to always run even if Gradle thinks otherwise")
+  maxParallelForks = Runtime.getRuntime().availableProcessors() * 2
+  testLogging { events(TestLogEvent.PASSED, TestLogEvent.SKIPPED, TestLogEvent.FAILED) }
+  doNotTrackState("We want tests to always run even if Gradle thinks otherwise")
 }
