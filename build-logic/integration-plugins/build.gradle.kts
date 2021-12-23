@@ -18,7 +18,5 @@ tasks.withType<KotlinCompile>().configureEach {
 }
 
 dependencies {
-  implementation(project(":android-plugins"))
-  implementation(project(":kotlin-plugins"))
   implementation(libs.build.dependencyanalysis)
 }
