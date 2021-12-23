@@ -1,1 +1,4 @@
-plugins { id("dev.skrilltrax.baka.kotlin-library") }
+plugins {
+  kotlin("jvm")
+  id("dev.skrilltrax.baka.kotlin-library")
+}
