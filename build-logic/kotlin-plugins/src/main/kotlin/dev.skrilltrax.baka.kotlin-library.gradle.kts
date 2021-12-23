@@ -1,5 +1,3 @@
-import kotlinx.kover.tasks.KoverHtmlReportTask
-import kotlinx.kover.tasks.KoverXmlReportTask
 import org.gradle.kotlin.dsl.withType
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
@@ -16,10 +14,10 @@ tasks.withType<KotlinCompile>().configureEach {
     }
 }
 
-tasks.withType<KoverXmlReportTask>().configureEach {
+tasks.koverXmlReport {
     xmlReportFile.set(rootProject.layout.buildDirectory.file("coverage-reports/${project.name}.xml"))
 }
 
-tasks.withType<KoverHtmlReportTask>().configureEach {
+tasks.koverHtmlReport {
     htmlReportDir.set(rootProject.layout.buildDirectory.dir("coverage-reports/${project.name}"))
 }
