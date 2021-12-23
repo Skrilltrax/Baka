@@ -22,7 +22,7 @@ tasks.withType<KotlinCompile>().configureEach {
     allWarningsAsErrors = true
     jvmTarget = JavaVersion.VERSION_11.toString()
     freeCompilerArgs = freeCompilerArgs + additionalCompilerArgs
-    languageVersion = "1.5"
+    languageVersion = "1.6"
   }
 }
 
