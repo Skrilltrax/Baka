@@ -1,4 +1,4 @@
 plugins {
-    kotlin("android")
-    id("dev.skrilltrax.baka.kotlin-common")
+  kotlin("android")
+  id("dev.skrilltrax.baka.kotlin-common")
 }

@@ -1,4 +1,4 @@
 plugins {
-    id("com.android.library")
-    id("dev.skrilltrax.baka.android-common")
+  id("com.android.library")
+  id("dev.skrilltrax.baka.android-common")
 }

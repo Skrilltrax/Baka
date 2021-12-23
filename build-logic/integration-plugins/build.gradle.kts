@@ -4,21 +4,21 @@ import org.gradle.kotlin.dsl.withType
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    `kotlin-dsl`
-    `kotlin-dsl-precompiled-script-plugins`
+  `kotlin-dsl`
+  `kotlin-dsl-precompiled-script-plugins`
 }
 
 tasks.withType<JavaCompile>().configureEach {
-    sourceCompatibility = JavaVersion.VERSION_11.toString()
-    targetCompatibility = JavaVersion.VERSION_11.toString()
+  sourceCompatibility = JavaVersion.VERSION_11.toString()
+  targetCompatibility = JavaVersion.VERSION_11.toString()
 }
 
 tasks.withType<KotlinCompile>().configureEach {
-    kotlinOptions { jvmTarget = JavaVersion.VERSION_11.toString() }
+  kotlinOptions { jvmTarget = JavaVersion.VERSION_11.toString() }
 }
 
 dependencies {
-    implementation(project(":android-plugins"))
-    implementation(project(":kotlin-plugins"))
-    implementation(libs.build.dependencyanalysis)
+  implementation(project(":android-plugins"))
+  implementation(project(":kotlin-plugins"))
+  implementation(libs.build.dependencyanalysis)
 }
