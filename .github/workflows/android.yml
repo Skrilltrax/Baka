@@ -76,7 +76,7 @@ jobs:
       - name: Build debug APKs
         uses: gradle/gradle-build-action@v2.0.1
         with:
-          arguments: assembleFreeDebug assembleNonFreeDebug
+          arguments: assembleDebug
 
   check-api:
     runs-on: ubuntu-latest
