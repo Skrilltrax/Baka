@@ -1,39 +1,15 @@
 plugins {
-    id("com.android.application")
-    id("org.jetbrains.kotlin.android")
+    id("dev.skrilltrax.baka.android-application")
+    id("dev.skrilltrax.baka.kotlin-android")
 }
 
-val compose_version = "1.0.0-rc02"
+val compose_version = "1.1.0-rc02"
 
 android {
-    compileSdk = 30
-    buildToolsVersion = "30.0.3"
-
     defaultConfig {
         applicationId = "dev.skrilltrax.baka"
-        minSdk = 21
-        targetSdk = 30
         versionCode = 1
         versionName = "1.0"
-
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-        vectorDrawables {
-            useSupportLibrary = true
-        }
-    }
-
-    buildTypes {
-        release {
-            isMinifyEnabled = false
-            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
-        }
-    }
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
-    }
-    kotlinOptions {
-        jvmTarget = "1.8"
     }
     buildFeatures {
         compose = true
@@ -49,8 +25,8 @@ dependencies {
     implementation("androidx.appcompat:appcompat:1.3.0")
     implementation("com.google.android.material:material:1.4.0")
     implementation("androidx.compose.ui:ui:$compose_version")
-    implementation("androidx.compose.material:material:$compose_version")
-    implementation("androidx.compose.ui:ui-tooling:$compose_version")
+    implementation("androidx.compose.material:material:1.1.0-rc01")
+    implementation("androidx.compose.ui:ui-tooling:1.1.0-rc01")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.3.1")
     implementation("androidx.activity:activity-compose:1.3.0-rc02")
     testImplementation("junit:junit:4.+")
