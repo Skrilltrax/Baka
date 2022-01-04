@@ -1,0 +1,10 @@
+query GetTrendingPopularAnime($page: Int, $perPage: Int) { # Define which variables will be used in the query (id)
+    page: Page(page: $page, perPage: $perPage) {
+        media(sort: [TRENDING_DESC, POPULARITY_DESC], type: ANIME) {
+            title {
+                romaji
+                english
+            }
+        }
+    }
+}
