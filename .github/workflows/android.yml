@@ -78,26 +78,6 @@ jobs:
         with:
           arguments: assembleDebug
 
-  check-api:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2.4.0
-        with:
-          fetch-depth: 0
-
-      - name: Set up JDK
-        uses : actions/setup-java@v2.4.0
-        with :
-          distribution : 'zulu'
-          java-version : '17'
-          cache: 'gradle'
-
-      - name: Check library API
-        uses: gradle/gradle-build-action@v2.0.1
-        with:
-          arguments: apiCheck
-
   lint-debug:
     runs-on: ubuntu-latest
     steps:
