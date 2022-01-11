@@ -32,6 +32,8 @@ compose-ui = { module = "androidx.compose.ui:ui", version.ref = "compose" }
 compose-ui-tooling = { module = "androidx.compose.ui:ui-tooling", version.ref = "compose" }
 
 apollo-runtime = { module = "com.apollographql.apollo3:apollo-runtime", version.ref = "apollo" }
+apollo-cache-memory = { module = "com.apollographql.apollo3:apollo-normalized-cache", version.ref = "apollo"}
+apollo-cache-sqlite = { module = "com.apollographql.apollo3:apollo-normalized-cache-sqlite", version.ref = "apollo"}
 
 material = "com.google.android.material:material:1.4.0"
 
