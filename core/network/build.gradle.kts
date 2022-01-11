@@ -4,4 +4,4 @@ plugins {
   id("dev.skrilltrax.baka.graphql")
 }
 
-dependencies { implementation(libs.graphql.runtime) }
+dependencies { implementation(libs.apollo.runtime) }

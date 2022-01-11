@@ -19,5 +19,5 @@ tasks.withType<KotlinCompile>().configureEach {
 
 dependencies {
   implementation(libs.build.dependencyanalysis)
-  implementation(libs.build.graphql)
+  implementation(libs.build.apollo.graphql)
 }
