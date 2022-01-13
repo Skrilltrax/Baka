@@ -4,6 +4,14 @@ rootProject.name = "build-logic"
 
 enableFeaturePreview("VERSION_CATALOGS")
 
+pluginManagement {
+  repositories {
+    mavenCentral()
+    google()
+    gradlePluginPortal()
+  }
+}
+
 dependencyResolutionManagement {
   repositories {
     google()
