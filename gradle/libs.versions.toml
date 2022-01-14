@@ -19,7 +19,7 @@ build-semver = "com.vdurmont:semver4j:3.1.0"
 build-spotless = "com.diffplug.spotless:spotless-plugin-gradle:6.2.0"
 build-dependencyanalysis = "com.autonomousapps:dependency-analysis-gradle-plugin:0.79.0"
 
-androidx-appcompat = "androidx.appcompat:appcompat:1.4.0"
+androidx-appcompat = "androidx.appcompat:appcompat:1.4.1"
 androidx-core = "androidx.core:core-ktx:1.7.0"
 androidx-lifecycle-ktx = "androidx.lifecycle:lifecycle-runtime-ktx:2.4.0"
 
