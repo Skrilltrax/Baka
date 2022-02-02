@@ -1,7 +1,7 @@
 [versions]
 compose = "1.1.0-rc03"
 apollo = "3.0.0"
-kotlin = "1.6.0"
+kotlin = "1.6.10"
 [libraries]
 
 # build dependencies
