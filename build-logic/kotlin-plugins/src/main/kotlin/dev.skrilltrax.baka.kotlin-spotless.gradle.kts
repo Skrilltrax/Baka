@@ -1,8 +1,6 @@
-import com.diffplug.gradle.spotless.SpotlessExtension
-
 plugins { id("com.diffplug.spotless") }
 
-extensions.configure<SpotlessExtension> {
+spotless {
   kotlin {
     ktfmt().googleStyle()
     target("**/*.kt")

@@ -3,10 +3,7 @@ import org.gradle.api.tasks.compile.JavaCompile
 import org.gradle.kotlin.dsl.withType
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
-plugins {
-  `kotlin-dsl`
-  `kotlin-dsl-precompiled-script-plugins`
-}
+plugins { `kotlin-dsl` }
 
 tasks.withType<JavaCompile>().configureEach {
   sourceCompatibility = JavaVersion.VERSION_11.toString()

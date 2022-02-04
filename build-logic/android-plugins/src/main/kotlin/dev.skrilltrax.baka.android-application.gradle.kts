@@ -1,5 +1,3 @@
-import com.android.build.gradle.internal.dsl.BaseAppModuleExtension
-
 plugins {
   id("com.android.application")
   id("dev.skrilltrax.baka.android-common")
@@ -14,7 +12,7 @@ fun Project.isSnapshot(): Boolean {
 }
 
 @Suppress("UnstableApiUsage")
-extensions.configure<BaseAppModuleExtension> {
+android {
   val minifySwitch =
     project.providers.environmentVariable("DISABLE_MINIFY").forUseAtConfigurationTime()
 

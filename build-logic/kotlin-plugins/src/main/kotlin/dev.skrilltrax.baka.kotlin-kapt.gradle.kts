@@ -1,6 +1,4 @@
 import org.gradle.api.Project
-import org.gradle.kotlin.dsl.configure
-import org.jetbrains.kotlin.gradle.plugin.KaptExtension
 
 plugins {
   kotlin("android")
@@ -8,7 +6,7 @@ plugins {
 }
 
 afterEvaluate {
-  extensions.configure<KaptExtension> {
+  kapt {
     javacOptions {
       if (hasDaggerCompilerDependency()) {
         // https://dagger.dev/dev-guide/compiler-options#fastinit-mode
