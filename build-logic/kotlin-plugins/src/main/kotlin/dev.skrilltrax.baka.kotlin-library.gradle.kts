@@ -2,6 +2,7 @@ import org.gradle.kotlin.dsl.withType
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
+  kotlin("jvm")
   id("dev.skrilltrax.baka.kotlin-common")
   id("org.jetbrains.kotlinx.kover")
 }
