@@ -7,9 +7,7 @@ import androidx.compose.ui.tooling.preview.Preview
 
 @Composable
 public fun BakaPrimaryButton(text: String, onClick: (() -> Unit)) {
-  Button(onClick = onClick) {
-    Text(text = text)
-  }
+  Button(onClick = onClick) { Text(text = text) }
 }
 
 @Preview
