@@ -12,7 +12,7 @@ build-download = "de.undercouch:gradle-download-task:5.0.1"
 build-apollo-graphql = { module = "com.apollographql.apollo3:apollo-gradle-plugin", version.ref = "apollo" }
 build-hilt = "com.google.dagger:hilt-android-gradle-plugin:2.40.5"
 build-kotlin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
-build-kover = "org.jetbrains.kotlinx:kover:0.4.4"
+build-kover = "org.jetbrains.kotlinx:kover:0.5.0"
 build-mavenpublish = "com.vanniktech:gradle-maven-publish-plugin:0.18.0"
 build-okhttp = "com.squareup.okhttp3:okhttp:4.9.3"
 build-semver = "com.vdurmont:semver4j:3.1.0"
