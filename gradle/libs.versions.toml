@@ -24,7 +24,7 @@ androidx-core = "androidx.core:core-ktx:1.7.0"
 androidx-lifecycle-ktx = "androidx.lifecycle:lifecycle-runtime-ktx:2.4.0"
 
 compose-activity = "androidx.activity:activity-compose:1.4.0"
-compose-compiler = "androidx.compose.compiler:compiler:1.1.0-rc03"
+compose-compiler = "androidx.compose.compiler:compiler:1.1.0"
 compose-foundation = { module = "androidx.compose.foundation:foundation", version.ref = "compose" }
 compose-foundation-layout = { module = "androidx.compose.foundation:foundation-layout", version.ref = "compose" }
 compose-material = { module = "androidx.compose.material:material", version.ref = "compose" }
