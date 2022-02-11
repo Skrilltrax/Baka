@@ -28,4 +28,6 @@ include(":app")
 
 include(":core:network")
 
+include(":ui:common")
+
 include(":ui:home")
