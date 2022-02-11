@@ -40,7 +40,6 @@ compose-ui = { module = "androidx.compose.ui:ui", version.ref = "compose" }
 compose-ui-tooling = { module = "androidx.compose.ui:ui-tooling", version.ref = "compose" }
 compose-ui-tooling-preview = { module = "androidx.compose.ui:ui-tooling-preview", version.ref = "compose" }
 
-
 material = "com.google.android.material:material:1.5.0"
 
 testing-junit = "junit:junit:4.13.2"

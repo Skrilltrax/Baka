@@ -14,6 +14,8 @@ android {
 }
 
 dependencies {
+  implementation(libs.accompanist.insets)
+  implementation(libs.accompanist.systemui)
   implementation(libs.androidx.appcompat)
   implementation(libs.androidx.core)
   implementation(libs.androidx.lifecycle.ktx)
