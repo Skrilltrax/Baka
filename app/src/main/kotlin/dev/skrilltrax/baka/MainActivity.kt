@@ -11,7 +11,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.core.view.WindowCompat
 import dev.skrilltrax.baka.ui.BakaApp
-import dev.skrilltrax.baka.ui.theme.BakaTheme
 
 @ExperimentalMaterial3Api
 class MainActivity : ComponentActivity() {
@@ -22,8 +21,14 @@ class MainActivity : ComponentActivity() {
   }
 }
 
-@Preview(showBackground = true)
+@Preview(showBackground = true, group = "BakaApp", name = "Dark")
 @Composable
-fun DefaultPreview() {
-  BakaTheme { BakaHomeScreen() }
+fun PreviewBakaAppDarkTheme() {
+  BakaApp(isDarkTheme = true)
+}
+
+@Preview(showBackground = true, group = "BakaApp", name = "Light")
+@Composable
+fun PreviewBakaAppLightTheme() {
+  BakaApp(isDarkTheme = false)
 }

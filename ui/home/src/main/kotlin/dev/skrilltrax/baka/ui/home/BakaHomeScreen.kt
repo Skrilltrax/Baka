@@ -5,7 +5,5 @@ import androidx.compose.runtime.Composable
 
 @Composable
 fun BakaHomeScreen() {
-    LazyColumn {
-        TODO()
-    }
+  LazyColumn { TODO() }
 }
