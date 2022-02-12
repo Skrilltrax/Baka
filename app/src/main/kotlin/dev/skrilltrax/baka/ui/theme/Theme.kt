@@ -1,5 +1,6 @@
 package dev.skrilltrax.baka.ui.theme
 
+import android.annotation.SuppressLint
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.*
@@ -66,9 +67,11 @@ private val DarkColorScheme =
     inversePrimary = md_theme_dark_inversePrimary,
   )
 
+@SuppressLint("NewApi")
 @Composable
 fun BakaTheme(darkTheme: Boolean = isSystemInDarkTheme(), content: @Composable () -> Unit) {
   // Dynamic color is available on Android 12+
+  // Lint throws a "NewApi" error here because we have saved the result of the version check
   val dynamicColor = Build.VERSION.SDK_INT >= Build.VERSION_CODES.S
   val colorScheme =
     when {
