@@ -5,13 +5,24 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins { `kotlin-dsl` }
 
-tasks.withType<JavaCompile>().configureEach {
-  sourceCompatibility = JavaVersion.VERSION_11.toString()
-  targetCompatibility = JavaVersion.VERSION_11.toString()
+afterEvaluate {
+  tasks.withType<JavaCompile>().configureEach {
+    sourceCompatibility = JavaVersion.VERSION_11.toString()
+    targetCompatibility = JavaVersion.VERSION_11.toString()
+  }
+
+  tasks.withType<KotlinCompile>().configureEach {
+    kotlinOptions { jvmTarget = JavaVersion.VERSION_11.toString() }
+  }
 }
 
-tasks.withType<KotlinCompile>().configureEach {
-  kotlinOptions { jvmTarget = JavaVersion.VERSION_11.toString() }
+gradlePlugin {
+  plugins {
+    register("versioning") {
+      id = "dev.skrilltrax.baka.secrets-plugin"
+      implementationClass = "secrets.SecretsPlugin"
+    }
+  }
 }
 
 dependencies { implementation(libs.build.agp) }
