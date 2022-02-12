@@ -14,16 +14,24 @@ android {
 }
 
 dependencies {
+  implementation(projects.ui.common)
+  implementation(projects.ui.home)
+
+  implementation(libs.accompanist.insets)
+  implementation(libs.accompanist.systemui)
   implementation(libs.androidx.appcompat)
   implementation(libs.androidx.core)
   implementation(libs.androidx.lifecycle.ktx)
-  implementation(libs.compose.material)
-  implementation(libs.compose.ui)
-  implementation(libs.compose.ui.tooling)
   implementation(libs.compose.activity)
-  implementation(libs.material)
+  implementation(libs.compose.material3)
+  implementation(libs.compose.ui)
+  implementation(libs.compose.ui.tooling.preview)
+
+  debugImplementation(libs.compose.ui.tooling)
+
   testImplementation(libs.testing.junit)
-  androidTestImplementation(libs.testing.junit.ext)
+
   androidTestImplementation(libs.testing.espresso.core)
   androidTestImplementation(libs.testing.junit.ui)
+  androidTestImplementation(libs.testing.junit.ext)
 }
