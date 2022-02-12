@@ -6,6 +6,10 @@ concurrency:
   group: ${{ github.head_ref }}
   cancel-in-progress: true
 
+env:
+  BAKA_CLIENT_ID: ${{ secrets.BAKA_CLIENT_ID }}
+  BAKA_CLIENT_SECRET: ${{ secrets.BAKA_CLIENT_SECRET }}
+
 jobs:
   check-codestyle:
     runs-on: ubuntu-latest
