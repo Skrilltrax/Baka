@@ -18,7 +18,7 @@ afterEvaluate {
 
 gradlePlugin {
   plugins {
-    register("versioning") {
+    register("secrets") {
       id = "dev.skrilltrax.baka.secrets-plugin"
       implementationClass = "secrets.SecretsPlugin"
     }
