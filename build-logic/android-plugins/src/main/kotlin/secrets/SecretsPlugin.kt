@@ -14,9 +14,10 @@ class SecretsPlugin : Plugin<Project> {
 
   override fun apply(project: Project) {
     with(project) {
-      val appPlugin = checkNotNull(plugins.findPlugin(AppPlugin::class.java)) {
+      val appPlugin =
+        checkNotNull(plugins.findPlugin(AppPlugin::class.java)) {
           "Plugin 'com.android.application' must be applied to use this plugin"
-      }
+        }
 
       val envResult = kotlin.runCatching { loadClientConfigFromEnvironment(providers) }
       if (envResult.isSuccess) {
@@ -30,7 +31,9 @@ class SecretsPlugin : Plugin<Project> {
         return
       }
 
-      throw IllegalStateException("client config not found in environment variables and 'secrets.properties'")
+      throw IllegalStateException(
+        "client config not found in environment variables and 'secrets.properties'"
+      )
     }
   }
 
@@ -38,9 +41,7 @@ class SecretsPlugin : Plugin<Project> {
     val envClientId = providers.environmentVariable(BAKA_CLIENT_ID).get()
     val envClientSecret = providers.environmentVariable(BAKA_CLIENT_SECRET).get()
 
-    checkNotNull(envClientId) {
-      "environment variable must contain a '$BAKA_CLIENT_ID' property"
-    }
+    checkNotNull(envClientId) { "environment variable must contain a '$BAKA_CLIENT_ID' property" }
 
     checkNotNull(envClientSecret) {
       "environment variable must contain a '$BAKA_CLIENT_SECRET' property"
@@ -59,18 +60,28 @@ class SecretsPlugin : Plugin<Project> {
     }
     val contents = providers.fileContents(propFile).asText
     val versionProps = Properties().also { it.load(contents.get().byteInputStream()) }
-    val clientId = checkNotNull(versionProps.getProperty(BAKA_CLIENT_ID)) {
+    val clientId =
+      checkNotNull(versionProps.getProperty(BAKA_CLIENT_ID)) {
         "secrets.properties must contain a '$BAKA_CLIENT_ID' property"
-    }
-    val clientSecret = checkNotNull(versionProps.getProperty(BAKA_CLIENT_SECRET)) {
+      }
+    val clientSecret =
+      checkNotNull(versionProps.getProperty(BAKA_CLIENT_SECRET)) {
         "secrets.properties must contain a '$BAKA_CLIENT_SECRET' property"
-    }
+      }
 
     return ClientConfig(clientId, clientSecret)
   }
 
   private fun createBuildConfigFields(appPlugin: AppPlugin, clientConfig: ClientConfig) {
-    appPlugin.extension.defaultConfig.buildConfigField("String", BAKA_CLIENT_ID, clientConfig.clientId)
-    appPlugin.extension.defaultConfig.buildConfigField("String", BAKA_CLIENT_SECRET, clientConfig.clientSecret)
+    appPlugin.extension.defaultConfig.buildConfigField(
+      "String",
+      BAKA_CLIENT_ID,
+      clientConfig.clientId
+    )
+    appPlugin.extension.defaultConfig.buildConfigField(
+      "String",
+      BAKA_CLIENT_SECRET,
+      clientConfig.clientSecret
+    )
   }
 }
