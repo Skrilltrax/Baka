@@ -5,16 +5,15 @@ plugins {
 
 fun Project.isSnapshot(): Boolean {
   with(project.providers) {
-    val workflow = environmentVariable("GITHUB_WORKFLOW").forUseAtConfigurationTime()
-    val snapshot = environmentVariable("SNAPSHOT").forUseAtConfigurationTime()
+    val workflow = environmentVariable("GITHUB_WORKFLOW")
+    val snapshot = environmentVariable("SNAPSHOT")
     return workflow.isPresent || snapshot.isPresent
   }
 }
 
 @Suppress("UnstableApiUsage")
 android {
-  val minifySwitch =
-    project.providers.environmentVariable("DISABLE_MINIFY").forUseAtConfigurationTime()
+  val minifySwitch = project.providers.environmentVariable("DISABLE_MINIFY")
 
   adbOptions.installOptions("--user 0")
 
