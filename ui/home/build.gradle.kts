@@ -9,6 +9,8 @@ android {
 }
 
 dependencies {
+  implementation(projects.ui.common)
+
   implementation(libs.accompanist.insets)
   implementation(libs.compose.material3)
   implementation(libs.compose.ui.tooling.preview)

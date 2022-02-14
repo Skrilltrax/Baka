@@ -5,5 +5,5 @@ import androidx.compose.runtime.Composable
 
 @Composable
 fun BakaHomeScreen() {
-  LazyColumn { TODO() }
+  LazyColumn { items(1) { BakaTitleRow(title = "CURRENTLY TRENDING") } }
 }
