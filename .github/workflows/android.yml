@@ -1,6 +1,13 @@
 name: Android CI
 
-on: [pull_request]
+on:
+  push:
+    branches:
+      - 'develop'
+      - 'releases/**'
+  pull_request:
+    branches:
+      - '*'
 
 concurrency:
   group: ${{ github.head_ref }}
@@ -16,10 +23,10 @@ jobs:
           fetch-depth: 0
 
       - name: Set up JDK
-        uses : actions/setup-java@v2.4.0
-        with :
-          distribution : 'zulu'
-          java-version : '17'
+        uses: actions/setup-java@v2.4.0
+        with:
+          distribution: 'zulu'
+          java-version: '17'
           cache: 'gradle'
 
       - name: Check codestyle
@@ -36,10 +43,10 @@ jobs:
           fetch-depth: 0
 
       - name: Set up JDK
-        uses : actions/setup-java@v2.4.0
-        with :
-          distribution : 'zulu'
-          java-version : '17'
+        uses: actions/setup-java@v2.4.0
+        with:
+          distribution: 'zulu'
+          java-version: '17'
           cache: 'gradle'
 
       - name: Run unit tests
@@ -63,10 +70,10 @@ jobs:
           fetch-depth: 0
 
       - name: Set up JDK
-        uses : actions/setup-java@v2.4.0
-        with :
-          distribution : 'zulu'
-          java-version : '17'
+        uses: actions/setup-java@v2.4.0
+        with:
+          distribution: 'zulu'
+          java-version: '17'
           cache: 'gradle'
 
       - name: Build debug APKs
@@ -83,10 +90,10 @@ jobs:
           fetch-depth: 0
 
       - name: Set up JDK
-        uses : actions/setup-java@v2.4.0
-        with :
-          distribution : 'zulu'
-          java-version : '17'
+        uses: actions/setup-java@v2.4.0
+        with:
+          distribution: 'zulu'
+          java-version: '17'
           cache: 'gradle'
 
       - name: Run Lint on debug variants
@@ -103,10 +110,10 @@ jobs:
           fetch-depth: 0
 
       - name: Set up JDK
-        uses : actions/setup-java@v2.4.0
-        with :
-          distribution : 'zulu'
-          java-version : '17'
+        uses: actions/setup-java@v2.4.0
+        with:
+          distribution: 'zulu'
+          java-version: '17'
           cache: 'gradle'
 
       - name: Generate coverage reports with kotlinx-kover
