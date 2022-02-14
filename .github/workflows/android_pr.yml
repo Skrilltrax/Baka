@@ -1,0 +1,133 @@
+name: Android CI
+
+on: pull_request
+
+concurrency:
+  group: ${{ github.head_ref }}
+  cancel-in-progress: true
+
+jobs:
+  check-codestyle:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2.4.0
+        with:
+          fetch-depth: 0
+
+      - name: Set up JDK
+        uses: actions/setup-java@v2.4.0
+        with:
+          distribution: 'zulu'
+          java-version: '17'
+          cache: 'gradle'
+
+      - name: Check codestyle
+        uses: gradle/gradle-build-action@v2.1.3
+        with:
+          arguments: spotlessCheck
+
+  unit-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2.4.0
+        with:
+          fetch-depth: 0
+
+      - name: Set up JDK
+        uses: actions/setup-java@v2.4.0
+        with:
+          distribution: 'zulu'
+          java-version: '17'
+          cache: 'gradle'
+
+      - name: Run unit tests
+        uses: gradle/gradle-build-action@v2.1.3
+        with:
+          arguments: test
+
+      - name: (Fail-only) Upload test report
+        if: failure()
+        uses: actions/upload-artifact@v2.3.1
+        with:
+          name: Test report
+          path: app/build/reports
+
+  build-apks:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2.4.0
+        with:
+          fetch-depth: 0
+
+      - name: Set up JDK
+        uses: actions/setup-java@v2.4.0
+        with:
+          distribution: 'zulu'
+          java-version: '17'
+          cache: 'gradle'
+
+      - name: Build debug APKs
+        uses: gradle/gradle-build-action@v2.1.3
+        with:
+          arguments: assembleDebug
+
+  lint-debug:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2.4.0
+        with:
+          fetch-depth: 0
+
+      - name: Set up JDK
+        uses: actions/setup-java@v2.4.0
+        with:
+          distribution: 'zulu'
+          java-version: '17'
+          cache: 'gradle'
+
+      - name: Run Lint on debug variants
+        uses: gradle/gradle-build-action@v2.1.3
+        with:
+          arguments: lintDebug
+
+  code-coverage:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2.4.0
+        with:
+          fetch-depth: 0
+
+      - name: Set up JDK
+        uses: actions/setup-java@v2.4.0
+        with:
+          distribution: 'zulu'
+          java-version: '17'
+          cache: 'gradle'
+
+      - name: Generate coverage reports with kotlinx-kover
+        uses: gradle/gradle-build-action@v2.1.3
+        with:
+          arguments: koverXmlReport
+
+      - name: Export coverage XMLs
+        id: coverage-export
+        shell: bash
+        run: |
+          REPORTS="$(find ./build/coverage-reports/ -maxdepth 1 -type f -printf "${GITHUB_WORKSPACE}/%p," -name "*.xml")"
+          REPORTS="${REPORTS::${#REPORTS}-1}"
+          echo ::set-output name=REPORT_PATHS::${REPORTS}
+
+      - name: Publish JaCoCo report to PR
+        if: false
+        uses: madrapps/jacoco-report@v1.2
+        with:
+          paths: ${{ steps.coverage-export.outputs.REPORT_PATHS }}
+          token: ${{ secrets.GITHUB_TOKEN }}
+          min-coverage-overall: 0
+          min-coverage-changed-files: 40
+          title: Code Coverage
