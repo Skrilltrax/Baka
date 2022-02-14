@@ -1,4 +1,4 @@
-package dev.skrilltrax.baka.ui.theme
+package dev.skrilltrax.baka.ui.common.theme
 
 import android.annotation.SuppressLint
 import android.os.Build

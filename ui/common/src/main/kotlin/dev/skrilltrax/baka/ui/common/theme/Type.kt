@@ -1,4 +1,4 @@
-package dev.skrilltrax.baka.ui.theme
+package dev.skrilltrax.baka.ui.common.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle

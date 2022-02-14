@@ -1,4 +1,4 @@
-package dev.skrilltrax.baka.ui.common
+package dev.skrilltrax.baka.ui.common.decorations
 
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Favorite
