@@ -15,16 +15,22 @@ androidComponents {
   }
   val contents = providers.fileContents(propFile).asText
   val secretsProps = Properties().also { it.load(contents.get().byteInputStream()) }
-      val clientId =
-        requireNotNull(secretsProps.getProperty(BAKA_CLIENT_ID)) {
-          "secrets.properties must contain a '$BAKA_CLIENT_ID' property"
-        }
-      val clientSecret =
-        requireNotNull(secretsProps.getProperty(BAKA_CLIENT_SECRET)) {
-          "secrets.properties must contain a '$BAKA_CLIENT_SECRET' property"
-        }
+  val clientId =
+    requireNotNull(secretsProps.getProperty(BAKA_CLIENT_ID)) {
+      "secrets.properties must contain a '$BAKA_CLIENT_ID' property"
+    }
+  val clientSecret =
+    requireNotNull(secretsProps.getProperty(BAKA_CLIENT_SECRET)) {
+      "secrets.properties must contain a '$BAKA_CLIENT_SECRET' property"
+    }
   onVariants { variant ->
-    variant.buildConfigFields.put(BAKA_CLIENT_ID, BuildConfigField("String", "\"$clientId\"", "Client ID"))
-    variant.buildConfigFields.put(BAKA_CLIENT_SECRET, BuildConfigField("String", "\"$clientSecret\"", "Client Secret"))
+    variant.buildConfigFields.put(
+      BAKA_CLIENT_ID,
+      BuildConfigField("String", "\"$clientId\"", "Client ID")
+    )
+    variant.buildConfigFields.put(
+      BAKA_CLIENT_SECRET,
+      BuildConfigField("String", "\"$clientSecret\"", "Client Secret")
+    )
   }
 }
