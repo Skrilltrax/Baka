@@ -12,11 +12,12 @@
         <activity
             android:name=".MainActivity"
             android:exported="true"
-            android:theme="@style/Theme.Baka">
+            android:theme="@style/Theme.Baka"
+            android:launchMode="singleTask">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
+                <data android:host="auth" android:scheme="baka" />
             </intent-filter>
         </activity>
     </application>

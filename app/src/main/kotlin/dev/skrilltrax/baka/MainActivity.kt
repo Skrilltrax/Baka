@@ -2,6 +2,7 @@
 
 package dev.skrilltrax.baka
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -18,6 +19,14 @@ class MainActivity : ComponentActivity() {
     super.onCreate(savedInstanceState)
     WindowCompat.setDecorFitsSystemWindows(window, false)
     setContent { BakaApp(isDarkTheme = isSystemInDarkTheme()) }
+  }
+
+  override fun onNewIntent(intent: Intent?) {
+    super.onNewIntent(intent)
+    if (intent == null) return
+
+    val uri = intent.data
+
   }
 }
 
