@@ -15,6 +15,7 @@ build-kotlin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.r
 build-kover = "org.jetbrains.kotlinx:kover:0.4.4"
 build-mavenpublish = "com.vanniktech:gradle-maven-publish-plugin:0.18.0"
 build-okhttp = "com.squareup.okhttp3:okhttp:4.9.3"
+build-protobuf = "com.google.protobuf:protobuf-gradle-plugin:0.8.18"
 build-semver = "com.vdurmont:semver4j:3.1.0"
 build-spotless = "com.diffplug.spotless:spotless-plugin-gradle:6.2.2"
 build-dependencyanalysis = "com.autonomousapps:dependency-analysis-gradle-plugin:0.80.0"
@@ -24,6 +25,8 @@ accompanist-systemui = "com.google.accompanist:accompanist-systemuicontroller:0.
 
 androidx-appcompat = "androidx.appcompat:appcompat:1.4.1"
 androidx-core = "androidx.core:core-ktx:1.7.0"
+androidx-datastore = "androidx.datastore:datastore:1.0.0"
+androidx-datastore-core = "androidx.datastore:datastore-core:1.0.0"
 androidx-lifecycle-ktx = "androidx.lifecycle:lifecycle-runtime-ktx:2.4.0"
 
 apollo-runtime = { module = "com.apollographql.apollo3:apollo-runtime", version.ref = "apollo" }
@@ -41,6 +44,10 @@ compose-ui-tooling = { module = "androidx.compose.ui:ui-tooling", version.ref = 
 compose-ui-tooling-preview = { module = "androidx.compose.ui:ui-tooling-preview", version.ref = "compose" }
 
 material = "com.google.android.material:material:1.5.0"
+
+protobuf = "com.google.protobuf:protobuf-kotlin:3.19.4"
+protobuf-java-lite = "com.google.protobuf:protobuf-javalite:3.19.4"
+protobuf-kotlin-lite = "com.google.protobuf:protobuf-kotlin-lite:3.19.4"
 
 testing-junit = "junit:junit:4.13.2"
 testing-junit-ext = "androidx.test.ext:junit:1.1.3"
