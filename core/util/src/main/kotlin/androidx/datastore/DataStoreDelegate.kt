@@ -20,17 +20,17 @@ import androidx.annotation.GuardedBy
 import androidx.datastore.core.DataMigration
 import androidx.datastore.core.DataStore
 import androidx.datastore.core.DataStoreFactory
-import androidx.datastore.core.handlers.ReplaceFileCorruptionHandler
 import androidx.datastore.core.Serializer
+import androidx.datastore.core.handlers.ReplaceFileCorruptionHandler
+import kotlin.properties.ReadOnlyProperty
+import kotlin.reflect.KProperty
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
-import kotlin.properties.ReadOnlyProperty
-import kotlin.reflect.KProperty
 
 /**
- * Creates a property delegate for a single process DataStore. This should only be called once
- * in a file (at the top level), and all usages of the DataStore should use a reference the same
+ * Creates a property delegate for a single process DataStore. This should only be called once in a
+ * file (at the top level), and all usages of the DataStore should use a reference the same
  * Instance. The receiver type for the property delegate must be an instance of [Any].
  *
  * This should only be used from a single application in a single classloader in a single process.
@@ -46,71 +46,76 @@ import kotlin.reflect.KProperty
  *
  * @param baseDir the directory path that DataStore acts on. The File is obtained from
  * [dataStoreFile]. It is created in the "/datastore" subdirectory.
- * @param fileName the filename relative to Context.applicationContext.filesDir that DataStore
- * acts on. The File is obtained from [dataStoreFile]. It is created in the "/datastore"
- * subdirectory.
+ * @param fileName the filename relative to Context.applicationContext.filesDir that DataStore acts
+ * on. The File is obtained from [dataStoreFile]. It is created in the "/datastore" subdirectory.
  * @param corruptionHandler The corruptionHandler is invoked if DataStore encounters a
  * [androidx.datastore.core.CorruptionException] when attempting to read data. CorruptionExceptions
  * are thrown by serializers when data can not be de-serialized.
  * @param produceMigrations produce the migrations. The ApplicationContext is passed in to these
  * callbacks as a parameter. DataMigrations are run before any access to data can occur. Each
- * producer and migration may be run more than once whether or not it already succeeded
- * (potentially because another migration failed or a write to disk failed.)
+ * producer and migration may be run more than once whether or not it already succeeded (potentially
+ * because another migration failed or a write to disk failed.)
  * @param scope The scope in which IO operations and transform functions will execute.
  *
  * @return a property delegate that manages a datastore as a singleton.
  */
 @Suppress("MissingJvmstatic")
 public fun <T> dataStore(
-    baseDir: String,
-    fileName: String,
-    serializer: Serializer<T>,
-    corruptionHandler: ReplaceFileCorruptionHandler<T>? = null,
-    produceMigrations: () -> List<DataMigration<T>> = { listOf() },
-    scope: CoroutineScope = CoroutineScope(Dispatchers.IO + SupervisorJob())
+  baseDir: String,
+  fileName: String,
+  serializer: Serializer<T>,
+  corruptionHandler: ReplaceFileCorruptionHandler<T>? = null,
+  produceMigrations: () -> List<DataMigration<T>> = { listOf() },
+  scope: CoroutineScope = CoroutineScope(Dispatchers.IO + SupervisorJob())
 ): ReadOnlyProperty<Any, DataStore<T>> {
-    return DataStoreSingletonDelegate(
-        baseDir, fileName, serializer, corruptionHandler, produceMigrations, scope
-    )
+  return DataStoreSingletonDelegate(
+    baseDir,
+    fileName,
+    serializer,
+    corruptionHandler,
+    produceMigrations,
+    scope
+  )
 }
 
-/**
- * Delegate class to manage DataStore as a singleton.
- */
-internal class DataStoreSingletonDelegate<T> internal constructor(
-    private val baseDir: String,
-    private val fileName: String,
-    private val serializer: Serializer<T>,
-    private val corruptionHandler: ReplaceFileCorruptionHandler<T>?,
-    private val produceMigrations: () -> List<DataMigration<T>>,
-    private val scope: CoroutineScope
+/** Delegate class to manage DataStore as a singleton. */
+internal class DataStoreSingletonDelegate<T>
+internal constructor(
+  private val baseDir: String,
+  private val fileName: String,
+  private val serializer: Serializer<T>,
+  private val corruptionHandler: ReplaceFileCorruptionHandler<T>?,
+  private val produceMigrations: () -> List<DataMigration<T>>,
+  private val scope: CoroutineScope
 ) : ReadOnlyProperty<Any, DataStore<T>> {
 
-    private val lock = Any()
+  private val lock = Any()
 
-    @Suppress("PrivatePropertyName")
-    @GuardedBy("lock")
-    @Volatile
-    private var INSTANCE: DataStore<T>? = null
+  @Suppress("PrivatePropertyName")
+  @GuardedBy("lock")
+  @Volatile
+  private var INSTANCE: DataStore<T>? = null
 
-    /**
-     * Gets the instance of the DataStore.
-     *
-     * @param thisRef must be an instance of [Any]
-     * @param property not used
-     */
-    override fun getValue(thisRef: Any, property: KProperty<*>): DataStore<T> {
-        return INSTANCE ?: synchronized(lock) {
-            if (INSTANCE == null) {
-                INSTANCE = DataStoreFactory.create(
-                    serializer = serializer,
-                    produceFile = { dataStoreFile(baseDir, fileName) },
-                    corruptionHandler = corruptionHandler,
-                    migrations = produceMigrations(),
-                    scope = scope
-                )
-            }
-            INSTANCE!!
+  /**
+   * Gets the instance of the DataStore.
+   *
+   * @param thisRef must be an instance of [Any]
+   * @param property not used
+   */
+  override fun getValue(thisRef: Any, property: KProperty<*>): DataStore<T> {
+    return INSTANCE
+      ?: synchronized(lock) {
+        if (INSTANCE == null) {
+          INSTANCE =
+            DataStoreFactory.create(
+              serializer = serializer,
+              produceFile = { dataStoreFile(baseDir, fileName) },
+              corruptionHandler = corruptionHandler,
+              migrations = produceMigrations(),
+              scope = scope
+            )
         }
-    }
+        INSTANCE!!
+      }
+  }
 }

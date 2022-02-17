@@ -25,8 +25,7 @@ class MainActivity : ComponentActivity() {
     super.onNewIntent(intent)
     if (intent == null) return
 
-    val uri = intent.data
-
+    // val uri = intent.data
   }
 }
 
