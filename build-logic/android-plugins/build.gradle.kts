@@ -16,13 +16,4 @@ afterEvaluate {
   }
 }
 
-gradlePlugin {
-  plugins {
-    register("versioning") {
-      id = "dev.skrilltrax.baka.secrets-plugin"
-      implementationClass = "secrets.SecretsPlugin"
-    }
-  }
-}
-
 dependencies { implementation(libs.build.agp) }

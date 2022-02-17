@@ -1,6 +1,7 @@
 plugins {
   id("dev.skrilltrax.baka.android-application")
   id("dev.skrilltrax.baka.kotlin-android")
+  id("dev.skrilltrax.baka.secrets-plugin")
 }
 
 android {
