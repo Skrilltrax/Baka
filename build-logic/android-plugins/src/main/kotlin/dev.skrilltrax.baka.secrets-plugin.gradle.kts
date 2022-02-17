@@ -10,47 +10,35 @@ plugins { id("com.android.application") }
 
 androidComponents {
   val projectDirectory = project.layout.projectDirectory
-  val propResult = kotlin.runCatching { loadSecretsFromProperties(projectDirectory) }
-  if (propResult.isSuccess) {
-    addSecretsToBuildConfig(propResult.getOrThrow())
-  }
-  val envResult = kotlin.runCatching { loadSecretsFromEnvironment() }
-  if (envResult.isSuccess) {
-    addSecretsToBuildConfig(envResult.getOrThrow())
-  }
+  val config =
+    loadSecretsFromProperties(projectDirectory) ?: loadSecretsFromEnvironment() ?: defaultConfig()
+  addSecretsToBuildConfig(config)
 }
 
-fun loadSecretsFromProperties(projectDirectory: Directory): ClientConfig {
+fun defaultConfig(): ClientConfig {
+  project.logger.lifecycle(
+    "[SecretsPlugin]: Failed to load secrets from environment or '$SECRETS_PROP_FILE'"
+  )
+  return ClientConfig("", "")
+}
+
+fun loadSecretsFromProperties(projectDirectory: Directory): ClientConfig? {
   val providers = project.providers
   val secretsFile = projectDirectory.file(SECRETS_PROP_FILE)
 
-  checkNotNull(secretsFile.asFile.exists()) {
-    "A 'secrets.properties' file must exist in the project subdirectory to use this plugin"
-  }
+  if (!secretsFile.asFile.exists()) return null
   val contents = providers.fileContents(secretsFile).asText
   val secretProps = Properties().also { it.load(contents.get().byteInputStream()) }
-  val clientId =
-    checkNotNull(secretProps.getProperty(BAKA_CLIENT_ID)) {
-      "secrets.properties must contain a '$BAKA_CLIENT_ID' property"
-    }
-  val clientSecret =
-    checkNotNull(secretProps.getProperty(BAKA_CLIENT_SECRET)) {
-      "secrets.properties must contain a '$BAKA_CLIENT_SECRET' property"
-    }
+  val clientId = secretProps.getProperty(BAKA_CLIENT_ID) ?: return null
+  val clientSecret = secretProps.getProperty(BAKA_CLIENT_SECRET) ?: return null
 
   return ClientConfig(clientId, clientSecret)
 }
 
-fun loadSecretsFromEnvironment(): ClientConfig {
+fun loadSecretsFromEnvironment(): ClientConfig? {
   val providers = project.providers
-  val envClientId = providers.environmentVariable(BAKA_CLIENT_ID).get()
-  val envClientSecret = providers.environmentVariable(BAKA_CLIENT_SECRET).get()
-
-  checkNotNull(envClientId) { "environment variable must contain a '$BAKA_CLIENT_ID' property" }
-
-  checkNotNull(envClientSecret) {
-    "environment variable must contain a '$BAKA_CLIENT_SECRET' property"
-  }
+  val envClientId = providers.environmentVariable(BAKA_CLIENT_ID).getOrNull() ?: return null
+  val envClientSecret = providers.environmentVariable(BAKA_CLIENT_SECRET).getOrNull() ?: return null
 
   return ClientConfig(envClientId, envClientSecret)
 }
