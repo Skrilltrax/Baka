@@ -26,6 +26,8 @@ enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 
 include(":app")
 
+include(":core:auth")
+
 include(":core:network")
 
 include(":ui:common")
