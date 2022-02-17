@@ -22,3 +22,11 @@ tasks.koverXmlReport {
 tasks.koverHtmlReport {
   htmlReportDir.set(rootProject.layout.buildDirectory.dir("coverage-reports/${project.name}"))
 }
+
+sourceSets {
+  named("main") { java.srcDirs("build/generated/source/proto/main/java") }
+  named("test") { java.srcDirs("build/generated/source/proto/main/java") }
+
+  named("main") { java.srcDirs("build/generated/source/proto/main/kotlin") }
+  named("test") { java.srcDirs("build/generated/source/proto/main/kotlin") }
+}

@@ -1,6 +1,4 @@
-import com.google.protobuf.gradle.generateProtoTasks
-import com.google.protobuf.gradle.protobuf
-import com.google.protobuf.gradle.protoc
+import com.google.protobuf.gradle.*
 
 plugins { id("com.google.protobuf") }
 
@@ -11,6 +9,9 @@ protobuf {
   // https://github.com/google/protobuf-gradle-plugin#customizing-protobuf-compilation
   // for more information.
   generateProtoTasks {
-    all().forEach { task -> task.builtins.named("java").configure { option("lite") } }
+    all().forEach { task ->
+      task.builtins.named("java").get().option("lite")
+      task.builtins.create("kotlin").option("lite")
+    }
   }
 }

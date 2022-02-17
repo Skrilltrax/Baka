@@ -17,7 +17,7 @@ afterEvaluate {
 }
 
 dependencies {
-  implementation(libs.build.dependencyanalysis)
   implementation(libs.build.apollo.graphql)
+  implementation(libs.build.dependencyanalysis)
   implementation(libs.build.protobuf)
 }

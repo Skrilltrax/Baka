@@ -11,6 +11,14 @@ extensions.configure<TestedExtension> {
     named("main") { java.srcDirs("src/main/kotlin") }
     named("test") { java.srcDirs("src/test/kotlin") }
     named("androidTest") { java.srcDirs("src/androidTest/kotlin") }
+
+    named("main") { java.srcDirs("build/generated/source/proto/main/java") }
+    named("test") { java.srcDirs("build/generated/source/proto/main/java") }
+    named("androidTest") { java.srcDirs("build/generated/source/proto/main/java") }
+
+    named("main") { java.srcDirs("build/generated/source/proto/main/kotlin") }
+    named("test") { java.srcDirs("build/generated/source/proto/main/kotlin") }
+    named("androidTest") { java.srcDirs("build/generated/source/proto/main/kotlin") }
   }
 
   @Suppress("UnstableApiUsage")
