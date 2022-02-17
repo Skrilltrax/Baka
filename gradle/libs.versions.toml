@@ -24,7 +24,7 @@ accompanist-systemui = "com.google.accompanist:accompanist-systemuicontroller:0.
 
 androidx-appcompat = "androidx.appcompat:appcompat:1.4.1"
 androidx-core = "androidx.core:core-ktx:1.7.0"
-androidx-lifecycle-ktx = "androidx.lifecycle:lifecycle-runtime-ktx:2.4.0"
+androidx-lifecycle-ktx = "androidx.lifecycle:lifecycle-runtime-ktx:2.4.1"
 
 apollo-runtime = { module = "com.apollographql.apollo3:apollo-runtime", version.ref = "apollo" }
 apollo-cache-memory = { module = "com.apollographql.apollo3:apollo-normalized-cache", version.ref = "apollo"}
