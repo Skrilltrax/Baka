@@ -4,6 +4,8 @@ plugins {
 }
 
 dependencies {
+  implementation(projects.core.util)
+
   implementation(libs.androidx.datastore.core)
   implementation(libs.protobuf.java.lite)
 }
