@@ -5,7 +5,6 @@ import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.datastore.preferences.preferencesDataStore
 import com.github.michaelbull.result.Result
 import com.github.michaelbull.result.runCatching
-import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.firstOrNull
 import kotlinx.coroutines.flow.map
 
@@ -32,12 +31,10 @@ public class AuthManager(filesDir: String) {
     }
   }
 
-  public suspend fun removeAuthToken(): Result<String, Throwable> {
+  public suspend fun removeAuthToken(): Result<Unit, Throwable> {
     return runCatching {
-      val mutablePrefs = authDataStore.data.first().toMutablePreferences()
       val authTokenKey = stringPreferencesKey(AUTH_TOKEN_KEY)
-
-      mutablePrefs.remove(authTokenKey)
+      authDataStore.edit { store -> store.remove(authTokenKey) }
     }
   }
 
