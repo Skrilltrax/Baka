@@ -7,5 +7,6 @@ dependencies {
   implementation(libs.thirdparty.kotlin.result)
 
   testImplementation(libs.testing.kotlin)
+  testImplementation(libs.testing.kotlin.coroutines)
   testImplementation(libs.testing.kotlin.junit)
 }

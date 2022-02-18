@@ -34,6 +34,7 @@ public class AuthManager(filesDir: String) {
   public suspend fun removeAuthToken(): Result<Unit, Throwable> {
     return runCatching {
       val authTokenKey = stringPreferencesKey(AUTH_TOKEN_KEY)
+
       authDataStore.edit { store -> store.remove(authTokenKey) }
     }
   }
