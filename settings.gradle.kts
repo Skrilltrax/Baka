@@ -30,6 +30,8 @@ include(":core:auth")
 
 include(":core:network")
 
+include(":core:util")
+
 include(":ui:common")
 
 include(":ui:home")
