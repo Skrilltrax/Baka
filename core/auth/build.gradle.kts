@@ -5,4 +5,7 @@ dependencies {
 
   implementation(libs.androidx.datastore.prefs.core)
   implementation(libs.thirdparty.kotlin.result)
+
+  testImplementation(libs.testing.kotlin)
+  testImplementation(libs.testing.kotlin.junit)
 }
