@@ -32,6 +32,8 @@ include(":core:network")
 
 include(":core:util")
 
+include(":ui:auth")
+
 include(":ui:common")
 
 include(":ui:home")
