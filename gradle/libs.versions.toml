@@ -43,7 +43,7 @@ compose-ui-tooling-preview = { module = "androidx.compose.ui:ui-tooling-preview"
 
 material = "com.google.android.material:material:1.5.0"
 
-protobuf = "com.google.protobuf:protobuf-kotlin:3.19.4"
+protobuf-kotlin = "com.google.protobuf:protobuf-kotlin:3.19.4"
 protobuf-java-lite = "com.google.protobuf:protobuf-javalite:3.19.4"
 protobuf-kotlin-lite = "com.google.protobuf:protobuf-kotlin-lite:3.19.4"
 

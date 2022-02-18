@@ -17,7 +17,9 @@ afterEvaluate {
 }
 
 dependencies {
-  implementation(libs.build.dependencyanalysis)
+  implementation(libs.build.agp)
   implementation(libs.build.apollo.graphql)
+  implementation(libs.build.dependencyanalysis)
+  implementation(libs.build.kotlin)
   implementation(libs.build.protobuf)
 }
