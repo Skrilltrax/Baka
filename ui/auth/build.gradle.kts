@@ -12,6 +12,9 @@ dependencies {
   implementation(projects.ui.common)
 
   implementation(libs.accompanist.insets)
+  implementation(libs.androidx.core)
+  implementation(libs.androidx.palette)
+  implementation(libs.coil.kt.compose)
   implementation(libs.compose.material3)
   implementation(libs.compose.ui.tooling.preview)
 

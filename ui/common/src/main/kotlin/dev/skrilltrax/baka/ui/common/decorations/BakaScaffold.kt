@@ -11,7 +11,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.input.nestedscroll.nestedScroll
-import dev.skrilltrax.baka.ui.common.BakaAppBar
 
 @Composable
 fun BakaScaffold(
@@ -28,7 +27,7 @@ fun BakaScaffold(
   Scaffold(
     modifier = modifier.nestedScroll(scrollBehavior.nestedScrollConnection),
     topBar = { BakaAppBar(title = title, scrollBehavior = scrollBehavior) },
-    bottomBar = { BakaNavigationBar(listOf("Temp", "Temp2", "Temp3")) },
+    bottomBar = { BakaNavigationBar(listOf("Discover", "Temp2", "Temp3")) },
     content = content,
   )
 }

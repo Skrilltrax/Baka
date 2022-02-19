@@ -17,6 +17,7 @@ android {
 dependencies {
   implementation(projects.ui.common)
   implementation(projects.ui.home)
+  implementation(projects.ui.auth)
 
   implementation(libs.accompanist.insets)
   implementation(libs.accompanist.systemui)
