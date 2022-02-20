@@ -4,7 +4,6 @@ package dev.skrilltrax.baka
 
 import android.content.Intent
 import android.os.Bundle
-import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.isSystemInDarkTheme
@@ -13,12 +12,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.core.view.WindowCompat
 import androidx.lifecycle.lifecycleScope
-import com.github.michaelbull.result.unwrap
 import dev.skrilltrax.baka.core.auth.AuthManager
 import dev.skrilltrax.baka.ui.BakaApp
+import dev.skrilltrax.baka.util.getParameters
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 
 @ExperimentalMaterial3Api
 class MainActivity : ComponentActivity() {
@@ -39,19 +37,20 @@ class MainActivity : ComponentActivity() {
       return
     }
 
-    val uri = intent.data
+    val uri = intent.data ?: return
     val stringUri = uri.toString()
-    if (stringUri.startsWith(Constants.REDIRECT_URI) && stringUri.contains(Constants.ACCESS_TOKEN)
-    ) {
-      val parts = stringUri.split(Constants.ACCESS_TOKEN)
-      val authToken = parts.last()
+
+    if (!stringUri.startsWith(Constants.REDIRECT_URI)) return
+    val parameters = uri.getParameters()
+    val authToken = parameters[Constants.ACCESS_TOKEN]
+    if (!authToken.isNullOrEmpty()) {
       lifecycleScope.launch(Dispatchers.IO) {
         authManager.saveAuthToken(authToken)
-        withContext(Dispatchers.Main) {
-          Toast.makeText(applicationContext, authManager.getAuthToken().unwrap(), Toast.LENGTH_LONG)
-            .show()
-        }
+        // TODO: Remove this println
+        println(authToken)
       }
+    } else {
+      // TODO: Propagate an error from here
     }
   }
 }
