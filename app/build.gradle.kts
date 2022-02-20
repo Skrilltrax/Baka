@@ -15,6 +15,7 @@ android {
 }
 
 dependencies {
+  implementation(projects.core.auth)
   implementation(projects.ui.auth)
   implementation(projects.ui.common)
   implementation(projects.ui.home)
@@ -27,6 +28,7 @@ dependencies {
   implementation(libs.compose.material3)
   implementation(libs.compose.ui)
   implementation(libs.compose.ui.tooling.preview)
+  implementation(libs.thirdparty.kotlin.result)
 
   debugImplementation(libs.compose.ui.tooling)
 

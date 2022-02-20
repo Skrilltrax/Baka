@@ -10,7 +10,7 @@ import androidx.compose.ui.unit.dp
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun BakaAuthScreen(onLogin: () -> Unit, modifier: Modifier = Modifier) {
+fun BakaAuthScreen(onClick: () -> Unit, modifier: Modifier = Modifier) {
   Column(
     modifier = modifier.fillMaxSize(),
     verticalArrangement = Arrangement.Center,
@@ -28,7 +28,7 @@ fun BakaAuthScreen(onLogin: () -> Unit, modifier: Modifier = Modifier) {
       text = stringResource(R.string.baka_auth_login_label),
       modifier = Modifier.padding(2.dp)
     )
-    Button(onClick = onLogin, modifier = Modifier.fillMaxWidth(0.6f).padding(16.dp)) {
+    Button(onClick = onClick, modifier = Modifier.fillMaxWidth(0.6f).padding(16.dp)) {
       Text(text = stringResource(R.string.login))
     }
   }
