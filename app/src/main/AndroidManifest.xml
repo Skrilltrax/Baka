@@ -17,8 +17,20 @@
             android:theme="@style/Theme.Baka">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".AuthActivity"
+            android:exported="true"
+            android:launchMode="singleTask">
+            <!-- launchMode is singleTask to prevent app from showing auth WebView again -->
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="baka" android:host="auth" />
             </intent-filter>
         </activity>
     </application>
