@@ -14,11 +14,16 @@
         <activity
             android:name=".MainActivity"
             android:exported="true"
-            android:theme="@style/Theme.Baka">
+            android:theme="@style/Theme.Baka"
+            android:launchMode="singleTask">
+            <!-- launchMode is singleTask to prevent app from showing auth WebView again -->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
+                <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="baka" android:host="auth" />
             </intent-filter>
         </activity>
     </application>

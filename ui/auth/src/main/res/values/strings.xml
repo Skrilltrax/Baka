@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<resources>
+    <string name="baka_jp">ばか</string>
+    <string name="baka_auth_login_subtitle">B-baka! You should login!</string>
+    <string name="baka_auth_login_title">ばか!!</string>
+    <string name="baka_auth_login_label">It\'s not like I like you or anything…</string>
+    <string name="login">Login</string>
+</resources>
