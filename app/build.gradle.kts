@@ -2,6 +2,8 @@ plugins {
   id("dev.skrilltrax.baka.android-application")
   id("dev.skrilltrax.baka.kotlin-android")
   id("dev.skrilltrax.baka.secrets-plugin")
+  id("com.squareup.anvil") version "2.3.11-1-6-10"
+  kotlin("kapt")
 }
 
 android {
@@ -28,6 +30,8 @@ dependencies {
   implementation(libs.compose.material3)
   implementation(libs.compose.ui)
   implementation(libs.compose.ui.tooling.preview)
+  implementation(libs.dagger)
+  kapt(libs.dagger.compiler)
   implementation(libs.thirdparty.kotlin.result)
 
   debugImplementation(libs.compose.ui.tooling)
