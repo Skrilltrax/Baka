@@ -3,7 +3,6 @@ plugins {
   id("dev.skrilltrax.baka.kotlin-android")
   id("dev.skrilltrax.baka.secrets-plugin")
   id("com.squareup.anvil") version "2.3.11-1-6-10"
-  kotlin("kapt")
 }
 
 android {
@@ -14,6 +13,10 @@ android {
   }
   buildFeatures { compose = true }
   composeOptions { kotlinCompilerExtensionVersion = libs.versions.compose.get() }
+}
+
+anvil {
+  generateDaggerFactories.set(true)
 }
 
 dependencies {
@@ -31,7 +34,6 @@ dependencies {
   implementation(libs.compose.ui)
   implementation(libs.compose.ui.tooling.preview)
   implementation(libs.dagger)
-  kapt(libs.dagger.compiler)
   implementation(libs.thirdparty.kotlin.result)
 
   debugImplementation(libs.compose.ui.tooling)
