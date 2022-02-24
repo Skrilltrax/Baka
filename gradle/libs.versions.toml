@@ -6,7 +6,7 @@ coroutines = "1.6.0"
 [libraries]
 
 # build dependencies
-build-agp = "com.android.tools.build:gradle:7.1.1"
+build-agp = "com.android.tools.build:gradle:7.1.2"
 build-binarycompat = "org.jetbrains.kotlinx:binary-compatibility-validator:0.8.0"
 build-dokka = { module = "org.jetbrains.dokka:dokka-gradle-plugin", version.ref = "kotlin" }
 build-download = "de.undercouch:gradle-download-task:5.0.1"
