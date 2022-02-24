@@ -1,5 +1,5 @@
 [versions]
-compose = "1.1.0"
+compose = "1.1.1"
 apollo = "3.1.0"
 kotlin = "1.6.10"
 coroutines = "1.6.0"
@@ -50,7 +50,7 @@ thirdparty-kotlin-result = "com.michael-bull.kotlin-result:kotlin-result:1.1.14"
 testing-espresso-core = "androidx.test.espresso:espresso-core:3.4.0"
 testing-junit = "junit:junit:4.13.2"
 testing-junit-ext = "androidx.test.ext:junit:1.1.3"
-testing-junit-ui = "androidx.compose.ui:ui-test-junit4:1.1.0"
+testing-junit-ui = "androidx.compose.ui:ui-test-junit4:1.1.1"
 testing-kotlin = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
 testing-kotlin-coroutines = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "coroutines" }
 testing-kotlin-junit = { module = "org.jetbrains.kotlin:kotlin-test-junit", version.ref = "kotlin" }
