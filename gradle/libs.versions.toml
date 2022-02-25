@@ -20,8 +20,8 @@ build-semver = "com.vdurmont:semver4j:3.1.0"
 build-spotless = "com.diffplug.spotless:spotless-plugin-gradle:6.3.0"
 build-dependencyanalysis = "com.autonomousapps:dependency-analysis-gradle-plugin:0.80.0"
 
-accompanist-insets = "com.google.accompanist:accompanist-insets:0.23.0"
-accompanist-systemui = "com.google.accompanist:accompanist-systemuicontroller:0.23.0"
+accompanist-insets = "com.google.accompanist:accompanist-insets:0.23.1"
+accompanist-systemui = "com.google.accompanist:accompanist-systemuicontroller:0.23.1"
 
 androidx-core = "androidx.core:core-ktx:1.7.0"
 androidx-datastore-prefs-core = "androidx.datastore:datastore-preferences-core:1.0.0"
