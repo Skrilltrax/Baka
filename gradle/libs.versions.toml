@@ -14,7 +14,7 @@ build-apollo-graphql = { module = "com.apollographql.apollo3:apollo-gradle-plugi
 build-hilt = "com.google.dagger:hilt-android-gradle-plugin:2.41"
 build-kotlin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
 build-kover = "org.jetbrains.kotlinx:kover:0.4.4"
-build-mavenpublish = "com.vanniktech:gradle-maven-publish-plugin:0.18.0"
+build-mavenpublish = "com.vanniktech:gradle-maven-publish-plugin:0.19.0"
 build-okhttp = "com.squareup.okhttp3:okhttp:4.9.3"
 build-semver = "com.vdurmont:semver4j:3.1.0"
 build-spotless = "com.diffplug.spotless:spotless-plugin-gradle:6.3.0"
