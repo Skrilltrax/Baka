@@ -3,9 +3,7 @@ plugins {
   id("com.squareup.anvil") version "2.3.11-1-6-10"
 }
 
-anvil {
-  generateDaggerFactories.set(true)
-}
+anvil { generateDaggerFactories.set(true) }
 
 dependencies {
   implementation(projects.core.util)
