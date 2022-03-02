@@ -13,7 +13,8 @@ class BakaApplication : Application() {
 
   override fun onCreate() {
     super.onCreate()
-    appComponent = DaggerAppComponent.builder()
+    appComponent =
+      DaggerAppComponent.builder()
         .application(this)
         .applicationCoroutineScope(coroutineScope)
         .build()
