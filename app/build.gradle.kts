@@ -2,6 +2,8 @@ plugins {
   id("dev.skrilltrax.baka.android-application")
   id("dev.skrilltrax.baka.kotlin-android")
   id("dev.skrilltrax.baka.secrets-plugin")
+  id("com.squareup.anvil") version "2.3.11-1-6-10"
+  kotlin("kapt")
 }
 
 android {
@@ -16,6 +18,7 @@ android {
 
 dependencies {
   implementation(projects.core.auth)
+  implementation(projects.di)
   implementation(projects.ui.auth)
   implementation(projects.ui.common)
   implementation(projects.ui.home)
@@ -28,6 +31,7 @@ dependencies {
   implementation(libs.compose.material3)
   implementation(libs.compose.ui)
   implementation(libs.compose.ui.tooling.preview)
+  implementation(libs.dagger)
   implementation(libs.thirdparty.kotlin.result)
 
   debugImplementation(libs.compose.ui.tooling)
@@ -37,4 +41,6 @@ dependencies {
   androidTestImplementation(libs.testing.espresso.core)
   androidTestImplementation(libs.testing.junit.ui)
   androidTestImplementation(libs.testing.junit.ext)
+
+  kapt(libs.dagger.compiler)
 }

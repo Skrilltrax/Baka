@@ -3,8 +3,9 @@ compose = "1.1.1"
 apollo = "3.1.0"
 kotlin = "1.6.10"
 coroutines = "1.6.0"
-[libraries]
+dagger = "2.41"
 
+[libraries]
 # build dependencies
 build-agp = "com.android.tools.build:gradle:7.1.2"
 build-binarycompat = "org.jetbrains.kotlinx:binary-compatibility-validator:0.8.0"
@@ -44,6 +45,8 @@ compose-ui-tooling-preview = { module = "androidx.compose.ui:ui-tooling-preview"
 material = "com.google.android.material:material:1.5.0"
 
 coil-kt-compose = "io.coil-kt:coil-compose:1.4.0"
+dagger = { module = "com.google.dagger:dagger", version.ref = "dagger" }
+dagger-compiler = { module = "com.google.dagger:dagger-compiler", version.ref = "dagger" }
 
 thirdparty-kotlin-result = "com.michael-bull.kotlin-result:kotlin-result:1.1.14"
 
@@ -54,5 +57,3 @@ testing-junit-ui = "androidx.compose.ui:ui-test-junit4:1.1.1"
 testing-kotlin = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
 testing-kotlin-coroutines = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "coroutines" }
 testing-kotlin-junit = { module = "org.jetbrains.kotlin:kotlin-test-junit", version.ref = "kotlin" }
-
-[bundles]

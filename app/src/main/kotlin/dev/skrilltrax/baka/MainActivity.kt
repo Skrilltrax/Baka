@@ -1,5 +1,3 @@
-@file:OptIn(ExperimentalMaterial3Api::class)
-
 package dev.skrilltrax.baka
 
 import android.content.Intent
@@ -7,7 +5,6 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.isSystemInDarkTheme
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.core.view.WindowCompat
@@ -15,15 +12,16 @@ import androidx.lifecycle.lifecycleScope
 import dev.skrilltrax.baka.core.auth.AuthManager
 import dev.skrilltrax.baka.ui.BakaApp
 import dev.skrilltrax.baka.util.getParameters
+import javax.inject.Inject
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-@ExperimentalMaterial3Api
 class MainActivity : ComponentActivity() {
-  // TODO: Get this from DI instead
-  private val authManager by lazy(LazyThreadSafetyMode.NONE) { AuthManager(filesDir.absolutePath) }
+
+  @Inject lateinit var authManager: AuthManager
 
   override fun onCreate(savedInstanceState: Bundle?) {
+    BakaApplication.appComponent.inject(this)
     super.onCreate(savedInstanceState)
     WindowCompat.setDecorFitsSystemWindows(window, false)
     setContent { BakaApp(isDarkTheme = isSystemInDarkTheme()) }
