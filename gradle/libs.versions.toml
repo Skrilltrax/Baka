@@ -57,6 +57,3 @@ testing-junit-ui = "androidx.compose.ui:ui-test-junit4:1.1.1"
 testing-kotlin = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
 testing-kotlin-coroutines = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "coroutines" }
 testing-kotlin-junit = { module = "org.jetbrains.kotlin:kotlin-test-junit", version.ref = "kotlin" }
-
-[plugins]
-anvil = { id = "com.squareup.anvil", version = "2.3.11-1-6-10" }
