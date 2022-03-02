@@ -5,10 +5,16 @@ import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.datastore.preferences.preferencesDataStore
 import com.github.michaelbull.result.Result
 import com.github.michaelbull.result.runCatching
+import dev.skrilltrax.baka.di.scopes.AppScope
+import dev.skrilltrax.baka.di.scopes.SingleInstanceIn
+import javax.inject.Inject
+import javax.inject.Named
 import kotlinx.coroutines.flow.firstOrNull
 import kotlinx.coroutines.flow.map
+import javax.inject.Singleton
 
-public class AuthManager(filesDir: String) {
+@Singleton
+public class AuthManager @Inject constructor(@Named("InternalFilesDirPath") filesDir: String) {
   private val authDataStore by preferencesDataStore(filesDir, DATASTORE_NAME)
 
   public suspend fun getAuthToken(): Result<String, Throwable> {
