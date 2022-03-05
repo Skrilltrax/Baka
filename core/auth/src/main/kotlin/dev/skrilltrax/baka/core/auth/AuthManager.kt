@@ -8,11 +8,18 @@ import com.github.michaelbull.result.runCatching
 import javax.inject.Inject
 import javax.inject.Named
 import javax.inject.Singleton
+import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.firstOrNull
 import kotlinx.coroutines.flow.map
 
 @Singleton
-public class AuthManager @Inject constructor(@Named("InternalFilesDirPath") filesDir: String) {
+public class AuthManager
+@Inject
+constructor(
+  @Named("InternalFilesDirPath") private val filesDir: String,
+  @Named("AppCoroutineScope") private val externalScope: CoroutineScope,
+  @Named("IoDispatcher") private val ioDispatcher: CoroutineDispatcher = Dispatchers.IO
+) {
   private val authDataStore by preferencesDataStore(filesDir, DATASTORE_NAME)
 
   public suspend fun getAuthToken(): Result<String, Throwable> {
@@ -29,7 +36,10 @@ public class AuthManager @Inject constructor(@Named("InternalFilesDirPath") file
       require(authToken.isNotEmpty()) { "authToken cannot be empty" }
 
       val authTokenKey = stringPreferencesKey(AUTH_TOKEN_KEY)
-      authDataStore.edit { store -> store[authTokenKey] = authToken }
+      // Use the external scope here to save the auth token
+      externalScope
+        .launch { authDataStore.edit { store -> store[authTokenKey] = authToken } }
+        .join()
 
       authToken
     }
@@ -39,7 +49,8 @@ public class AuthManager @Inject constructor(@Named("InternalFilesDirPath") file
     return runCatching {
       val authTokenKey = stringPreferencesKey(AUTH_TOKEN_KEY)
 
-      authDataStore.edit { store -> store.remove(authTokenKey) }
+      // Use the external scope here to remove the auth token
+      externalScope.launch { authDataStore.edit { store -> store.remove(authTokenKey) } }.join()
     }
   }
 
