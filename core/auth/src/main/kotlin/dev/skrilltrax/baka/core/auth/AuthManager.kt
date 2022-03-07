@@ -38,7 +38,7 @@ constructor(
       val authTokenKey = stringPreferencesKey(AUTH_TOKEN_KEY)
       // Use the external scope here to save the auth token
       externalScope
-        .launch { authDataStore.edit { store -> store[authTokenKey] = authToken } }
+        .launch(ioDispatcher) { authDataStore.edit { store -> store[authTokenKey] = authToken } }
         .join()
 
       authToken
@@ -50,7 +50,9 @@ constructor(
       val authTokenKey = stringPreferencesKey(AUTH_TOKEN_KEY)
 
       // Use the external scope here to remove the auth token
-      externalScope.launch { authDataStore.edit { store -> store.remove(authTokenKey) } }.join()
+      externalScope
+        .launch(ioDispatcher) { authDataStore.edit { store -> store.remove(authTokenKey) } }
+        .join()
     }
   }
 

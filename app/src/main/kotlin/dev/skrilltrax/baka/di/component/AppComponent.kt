@@ -6,8 +6,8 @@ import dagger.BindsInstance
 import dagger.Component
 import dev.skrilltrax.baka.MainActivity
 import dev.skrilltrax.baka.di.module.ContextModule
-import dev.skrilltrax.baka.di.scopes.AppCoroutineScope
 import dev.skrilltrax.baka.di.scopes.AppScope
+import javax.inject.Named
 import javax.inject.Singleton
 import kotlinx.coroutines.CoroutineScope
 
@@ -23,9 +23,7 @@ interface AppComponent {
     @BindsInstance fun application(application: Application): Builder
 
     @BindsInstance
-    fun applicationCoroutineScope(
-      @AppCoroutineScope applicationCoroutineScope: CoroutineScope
-    ): Builder
+    fun appCoroutineScope(@Named("AppCoroutineScope") appCoroutineScope: CoroutineScope): Builder
 
     fun build(): AppComponent
   }
