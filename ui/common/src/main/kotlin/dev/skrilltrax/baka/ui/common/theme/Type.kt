@@ -99,7 +99,7 @@ val AppTypography =
       TextStyle(
         fontFamily = Rubik,
         fontWeight = FontWeight.W400,
-        fontSize = 16.sp,
+        fontSize = 18.sp,
         lineHeight = 24.sp,
         letterSpacing = 0.5.sp,
       ),
@@ -107,7 +107,7 @@ val AppTypography =
       TextStyle(
         fontFamily = Rubik,
         fontWeight = FontWeight.W400,
-        fontSize = 14.sp,
+        fontSize = 16.sp,
         lineHeight = 20.sp,
         letterSpacing = 0.25.sp,
       ),
@@ -115,14 +115,14 @@ val AppTypography =
       TextStyle(
         fontFamily = Rubik,
         fontWeight = FontWeight.W400,
-        fontSize = 12.sp,
+        fontSize = 14.sp,
         lineHeight = 16.sp,
-        letterSpacing = 0.4.sp,
+        letterSpacing = 0.1.sp,
       ),
     labelLarge =
       TextStyle(
         fontFamily = Montserrat,
-        fontWeight = FontWeight.Medium,
+        fontWeight = FontWeight.SemiBold,
         fontSize = 14.sp,
         lineHeight = 20.sp,
         letterSpacing = 0.1.sp,
@@ -130,17 +130,17 @@ val AppTypography =
     labelMedium =
       TextStyle(
         fontFamily = Montserrat,
-        fontWeight = FontWeight.Medium,
+        fontWeight = FontWeight.SemiBold,
         fontSize = 12.sp,
         lineHeight = 16.sp,
-        letterSpacing = 0.5.sp,
+        letterSpacing = 0.2.sp,
       ),
     labelSmall =
       TextStyle(
         fontFamily = Montserrat,
-        fontWeight = FontWeight.Medium,
+        fontWeight = FontWeight.SemiBold,
         fontSize = 11.sp,
         lineHeight = 16.sp,
-        letterSpacing = 0.5.sp,
+        letterSpacing = 0.2.sp,
       ),
   )
