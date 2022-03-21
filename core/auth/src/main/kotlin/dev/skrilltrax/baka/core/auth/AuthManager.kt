@@ -4,7 +4,7 @@ import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.datastore.preferences.preferencesDataStore
 import com.github.michaelbull.result.Result
-import com.github.michaelbull.result.runCatching
+import dev.skrilltrax.baka.core.util.extension.runSuspendCatching
 import javax.inject.Inject
 import javax.inject.Named
 import javax.inject.Singleton
@@ -16,16 +16,16 @@ public class AuthManager @Inject constructor(@Named("InternalFilesDirPath") file
   private val authDataStore by preferencesDataStore(filesDir, DATASTORE_NAME)
 
   public suspend fun getAuthToken(): Result<String, Throwable> {
-    return runCatching {
+    return runSuspendCatching {
       val authTokenKey = stringPreferencesKey(AUTH_TOKEN_KEY)
       val authToken = authDataStore.data.map { store -> store[authTokenKey] }
 
-      return@runCatching authToken.firstOrNull() ?: throw AuthTokenNotFoundException()
+      return@runSuspendCatching authToken.firstOrNull() ?: throw AuthTokenNotFoundException()
     }
   }
 
   public suspend fun saveAuthToken(authToken: String): Result<String, Throwable> {
-    return runCatching {
+    return runSuspendCatching {
       require(authToken.isNotEmpty()) { "authToken cannot be empty" }
 
       val authTokenKey = stringPreferencesKey(AUTH_TOKEN_KEY)
@@ -36,7 +36,7 @@ public class AuthManager @Inject constructor(@Named("InternalFilesDirPath") file
   }
 
   public suspend fun removeAuthToken(): Result<Unit, Throwable> {
-    return runCatching {
+    return runSuspendCatching {
       val authTokenKey = stringPreferencesKey(AUTH_TOKEN_KEY)
 
       authDataStore.edit { store -> store.remove(authTokenKey) }
