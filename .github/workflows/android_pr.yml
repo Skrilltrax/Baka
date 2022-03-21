@@ -25,7 +25,7 @@ jobs:
       - name: Check codestyle
         uses: gradle/gradle-build-action@v2.1.3
         with:
-          arguments: spotlessCheck
+          arguments: --no-configuration-cache spotlessCheck
 
   unit-tests:
     runs-on: ubuntu-latest
@@ -45,7 +45,7 @@ jobs:
       - name: Run unit tests
         uses: gradle/gradle-build-action@v2.1.3
         with:
-          arguments: test
+          arguments: --no-configuration-cache test
 
       - name: (Fail-only) Upload test report
         if: failure()
@@ -72,7 +72,7 @@ jobs:
       - name: Build debug APKs
         uses: gradle/gradle-build-action@v2.1.3
         with:
-          arguments: assembleDebug
+          arguments: --no-configuration-cache assembleDebug
 
   lint-debug:
     runs-on: ubuntu-latest
@@ -92,7 +92,7 @@ jobs:
       - name: Run Lint on debug variants
         uses: gradle/gradle-build-action@v2.1.3
         with:
-          arguments: lintDebug
+          arguments: --no-configuration-cache lintDebug
 
   code-coverage:
     runs-on: ubuntu-latest
@@ -112,7 +112,7 @@ jobs:
       - name: Generate coverage reports with kotlinx-kover
         uses: gradle/gradle-build-action@v2.1.3
         with:
-          arguments: koverXmlReport
+          arguments: --no-configuration-cache koverXmlReport
 
       - name: Export coverage XMLs
         id: coverage-export
