@@ -32,6 +32,10 @@ include(":core:network")
 
 include(":core:util")
 
+include(":data:model")
+
+include(":data:repository")
+
 include(":di")
 
 include(":ui:auth")
