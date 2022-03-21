@@ -1,6 +1,6 @@
 @file:OptIn(ExperimentalMaterial3Api::class)
 
-package dev.skrilltrax.baka.ui.common
+package dev.skrilltrax.baka.ui.common.decorations
 
 import androidx.compose.animation.rememberSplineBasedDecay
 import androidx.compose.material3.*
