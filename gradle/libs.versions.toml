@@ -49,6 +49,7 @@ dagger = { module = "com.google.dagger:dagger", version.ref = "dagger" }
 dagger-compiler = { module = "com.google.dagger:dagger-compiler", version.ref = "dagger" }
 
 thirdparty-kotlin-result = "com.michael-bull.kotlin-result:kotlin-result:1.1.14"
+thirdparty-leakcanary = "com.squareup.leakcanary:leakcanary-android:2.8.1"
 
 testing-espresso-core = "androidx.test.espresso:espresso-core:3.4.0"
 testing-junit = "junit:junit:4.13.2"
