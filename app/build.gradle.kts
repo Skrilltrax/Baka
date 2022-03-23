@@ -35,6 +35,7 @@ dependencies {
   implementation(libs.thirdparty.kotlin.result)
 
   debugImplementation(libs.compose.ui.tooling)
+  debugImplementation(libs.thirdparty.leakcanary)
 
   testImplementation(libs.testing.junit)
 
