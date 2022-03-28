@@ -1,0 +1,21 @@
+query GetAnime($id: Int!) {
+  media: Media(id: $id) {
+      ...media
+  }
+}
+
+query GetTrendingAnime($page: Int!, $perPage: Int!, $showAdult: Boolean) {
+    page: Page(page: $page, perPage: $perPage) {
+        media(sort: TRENDING_DESC, type: ANIME, isAdult: $showAdult) {
+            ...media
+        }
+    }
+}
+
+query GetPopularAnime($page: Int!, $perPage: Int!, $showAdult: Boolean) {
+    page: Page(page: $page, perPage: $perPage) {
+        media(sort: POPULARITY_DESC, type: ANIME, isAdult: $showAdult) {
+            ...media
+        }
+    }
+}
