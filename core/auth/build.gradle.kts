@@ -1,6 +1,6 @@
 plugins {
   id("dev.skrilltrax.baka.kotlin-library")
-  id("com.squareup.anvil") version "2.3.11-1-6-10"
+  id("com.squareup.anvil") version "2.4.0"
 }
 
 anvil { generateDaggerFactories.set(true) }
