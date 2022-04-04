@@ -18,6 +18,8 @@ android {
 
 dependencies {
   implementation(projects.core.auth)
+  implementation(projects.core.network)
+  implementation(projects.data.repository)
   implementation(projects.di)
   implementation(projects.ui.auth)
   implementation(projects.ui.common)
@@ -33,6 +35,13 @@ dependencies {
   implementation(libs.compose.ui.tooling.preview)
   implementation(libs.dagger)
   implementation(libs.thirdparty.kotlin.result)
+
+  // https://github.com/google/dagger/releases/tag/dagger-2.41
+  // https://github.com/google/dagger/issues/3262
+  implementation(libs.square.logging.interceptor)
+  implementation(libs.apollo.runtime)
+  implementation(libs.apollo.cache.memory)
+  // implementation(libs.apollo.cache.sqlite)
 
   debugImplementation(libs.compose.ui.tooling)
 
