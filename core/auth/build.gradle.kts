@@ -11,7 +11,7 @@ dependencies {
 
   implementation(libs.androidx.datastore.prefs.core)
   implementation(libs.dagger)
-  implementation(libs.thirdparty.kotlin.result)
+  api(libs.thirdparty.kotlin.result)
 
   testImplementation(libs.testing.kotlin)
   testImplementation(libs.testing.kotlin.coroutines)
