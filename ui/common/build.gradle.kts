@@ -12,7 +12,7 @@ dependencies {
   implementation(libs.accompanist.insets)
   implementation(libs.compose.material3)
   implementation(libs.compose.ui.tooling.preview)
-  implementation(libs.coil.kt.compose)
+  implementation(libs.coil.compose)
 
   debugImplementation(libs.compose.ui.tooling)
 }

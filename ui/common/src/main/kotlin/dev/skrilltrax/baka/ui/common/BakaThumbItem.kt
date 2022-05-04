@@ -11,9 +11,12 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import coil.compose.rememberAsyncImagePainter
 import coil.compose.rememberImagePainter
+import coil.request.ImageRequest
 
 @Composable
 fun BakaThumbItem(thumbUrl: String, desc: String) {
@@ -21,7 +24,11 @@ fun BakaThumbItem(thumbUrl: String, desc: String) {
     Card(shape = RoundedCornerShape(8.dp)) {
       Box(modifier = Modifier.size(height = 128.dp, width = 96.dp)) {
         Image(
-          painter = rememberImagePainter(data = thumbUrl, builder = { crossfade(true) }),
+          painter = rememberAsyncImagePainter(
+            ImageRequest.Builder(LocalContext.current).data(data = thumbUrl).apply(block = fun ImageRequest.Builder.() {
+              crossfade(true)
+            }).build()
+          ),
           contentDescription = desc,
           modifier = Modifier.fillMaxSize(),
           contentScale = ContentScale.Crop

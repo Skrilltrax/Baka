@@ -7,6 +7,7 @@ anvil { generateDaggerFactories.set(true) }
 
 dependencies {
   implementation(projects.core.network)
+  implementation(projects.core.util)
   implementation(projects.di)
 
   implementation(libs.androidx.datastore.prefs.core)

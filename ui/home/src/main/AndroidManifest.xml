@@ -1,1 +1,4 @@
-<manifest package="dev.skrilltrax.baka.ui.home" />
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="dev.skrilltrax.baka.ui.home">
+    <uses-permission android:name="android.permission.INTERNET" />
+</manifest>
