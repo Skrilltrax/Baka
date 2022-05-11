@@ -6,12 +6,11 @@ plugins {
 anvil { generateDaggerFactories.set(true) }
 
 dependencies {
-  implementation(projects.core.util)
+  api(projects.core.util)
   implementation(projects.di)
 
   implementation(libs.androidx.datastore.prefs.core)
   implementation(libs.dagger)
-  api(libs.thirdparty.kotlin.result)
 
   testImplementation(libs.testing.kotlin)
   testImplementation(libs.testing.kotlin.coroutines)

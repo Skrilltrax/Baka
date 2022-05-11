@@ -5,9 +5,11 @@ import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.datastore.preferences.preferencesDataStore
 import com.github.michaelbull.result.Result
 import dev.skrilltrax.baka.core.util.extension.runSuspendCatching
+import dev.skrilltrax.baka.core.util.extension.runSuspendCatchingWithContext
 import javax.inject.Inject
 import javax.inject.Named
 import javax.inject.Singleton
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.firstOrNull
 import kotlinx.coroutines.flow.map
 
@@ -15,14 +17,12 @@ import kotlinx.coroutines.flow.map
 public class AuthManager @Inject constructor(@Named("InternalFilesDirPath") filesDir: String) {
   private val authDataStore by preferencesDataStore(filesDir, DATASTORE_NAME)
 
-  public suspend fun getAuthToken(): Result<String, Throwable> {
-    return runSuspendCatching {
+  public suspend fun getAuthToken(): Result<String, Throwable> = runSuspendCatchingWithContext(Dispatchers.IO) {
       val authTokenKey = stringPreferencesKey(AUTH_TOKEN_KEY)
       val authToken = authDataStore.data.map { store -> store[authTokenKey] }
 
-      return@runSuspendCatching authToken.firstOrNull() ?: throw AuthTokenNotFoundException()
+      authToken.firstOrNull() ?: throw AuthTokenNotFoundException()
     }
-  }
 
   public suspend fun saveAuthToken(authToken: String): Result<String, Throwable> {
     return runSuspendCatching {

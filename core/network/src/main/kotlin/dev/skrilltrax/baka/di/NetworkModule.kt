@@ -39,7 +39,6 @@ public object NetworkModule {
   }
 
   @Provides
-  @Singleton
   public fun provideOkHttpClient(loggingInterceptor: HttpLoggingInterceptor): OkHttpClient {
     return OkHttpClient.Builder().addInterceptor(loggingInterceptor).build()
   }
@@ -59,7 +58,6 @@ public object NetworkModule {
   }
 
   @Provides
-  @Singleton
   public fun provideMemoryCacheFactory(
     @MemoryCacheSizeLimit maxSizeBytes: Int,
     @MemoryCacheExpireTime expireAfterMillis: Long

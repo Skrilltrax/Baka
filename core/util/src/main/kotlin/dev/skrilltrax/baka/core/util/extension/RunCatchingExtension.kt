@@ -9,7 +9,9 @@ import com.github.michaelbull.result.Result
 import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
+import kotlin.coroutines.CoroutineContext
 import kotlinx.coroutines.CancellationException
+import kotlinx.coroutines.withContext
 
 /**
  * Calls the specified function [block] with [this] value as its receiver and returns its
@@ -17,7 +19,8 @@ import kotlinx.coroutines.CancellationException
  * [CancellationException] that was thrown from the [block] function execution and encapsulating it
  * as a failure.
  */
-public suspend inline fun <V> runSuspendCatching(block: () -> V): Result<V, Throwable> {
+@Suppress("REDUNDANT_INLINE_SUSPEND_FUNCTION_TYPE")
+public suspend inline fun <V> runSuspendCatching(block: suspend () -> V): Result<V, Throwable> {
   contract { callsInPlace(block, InvocationKind.EXACTLY_ONCE) }
 
   return try {
@@ -46,3 +49,12 @@ public suspend inline infix fun <T, V> T.runSuspendCatching(
     Err(e)
   }
 }
+
+public suspend inline fun <V> runSuspendCatchingWithContext(
+  context: CoroutineContext,
+  crossinline block: suspend () -> V
+): Result<V, Throwable> =
+  withContext(context) {
+    return@withContext runSuspendCatching(block)
+  }
+
