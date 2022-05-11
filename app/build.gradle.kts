@@ -3,6 +3,7 @@ plugins {
   id("dev.skrilltrax.baka.kotlin-android")
   id("dev.skrilltrax.baka.secrets-plugin")
   id("com.squareup.anvil") version "2.4.0"
+  id("com.google.android.libraries.mapsplatform.secrets-gradle-plugin") version "2.0.1"
   kotlin("kapt")
 }
 
@@ -14,6 +15,16 @@ android {
   }
   buildFeatures { compose = true }
   composeOptions { kotlinCompilerExtensionVersion = libs.versions.compose.get() }
+}
+
+secrets {
+  // Change the properties file from the default "local.properties" in your root project
+  // to another properties file in your root project.
+  propertiesFileName = "secrets.properties"
+
+  // A properties file containing default secret values. This file can be checked in version
+  // control.
+  defaultPropertiesFileName = "secrets.defaults.properties"
 }
 
 dependencies {
