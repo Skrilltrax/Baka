@@ -12,7 +12,7 @@ build-binarycompat = "org.jetbrains.kotlinx:binary-compatibility-validator:0.9.0
 build-dokka = { module = "org.jetbrains.dokka:dokka-gradle-plugin", version.ref = "kotlin" }
 build-download = "de.undercouch:gradle-download-task:5.1.0"
 build-apollo-graphql = { module = "com.apollographql.apollo3:apollo-gradle-plugin", version.ref = "apollo" }
-build-hilt = "com.google.dagger:hilt-android-gradle-plugin:2.41"
+build-hilt = "com.google.dagger:hilt-android-gradle-plugin:2.42"
 build-kotlin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
 build-kover = "org.jetbrains.kotlinx:kover:0.5.1"
 build-mavenpublish = "com.vanniktech:gradle-maven-publish-plugin:0.19.0"
