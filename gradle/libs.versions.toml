@@ -52,7 +52,7 @@ material = "com.google.android.material:material:1.5.0"
 square-logging-interceptor = "com.squareup.okhttp3:logging-interceptor:4.9.3"
 square-logcat = "com.squareup.logcat:logcat:0.1"
 
-thirdparty-kotlin-result = "com.michael-bull.kotlin-result:kotlin-result:1.1.14"
+thirdparty-kotlin-result = "com.michael-bull.kotlin-result:kotlin-result:1.1.16"
 thirdparty-leakcanary = "com.squareup.leakcanary:leakcanary-android:2.8.1"
 
 testing-espresso-core = "androidx.test.espresso:espresso-core:3.4.0"
