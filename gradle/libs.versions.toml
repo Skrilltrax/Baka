@@ -1,5 +1,5 @@
 [versions]
-compose = "1.1.1"
+compose = "1.2.0-beta01"
 apollo = "3.2.0"
 kotlin = "1.6.21"
 coroutines = "1.6.0"
@@ -19,7 +19,7 @@ build-mavenpublish = "com.vanniktech:gradle-maven-publish-plugin:0.19.0"
 build-okhttp = "com.squareup.okhttp3:okhttp:4.9.3"
 build-semver = "com.vdurmont:semver4j:3.1.0"
 build-spotless = "com.diffplug.spotless:spotless-plugin-gradle:6.4.2"
-build-dependencyanalysis = "com.autonomousapps:dependency-analysis-gradle-plugin:0.80.0"
+build-dependencyanalysis = "com.autonomousapps:dependency-analysis-gradle-plugin:1.2.0"
 
 accompanist-insets = "com.google.accompanist:accompanist-insets:0.23.1"
 accompanist-systemui = "com.google.accompanist:accompanist-systemuicontroller:0.23.1"
@@ -37,7 +37,7 @@ compose-compiler = "androidx.compose.compiler:compiler:1.1.1"
 compose-foundation = { module = "androidx.compose.foundation:foundation", version.ref = "compose" }
 compose-foundation-layout = { module = "androidx.compose.foundation:foundation-layout", version.ref = "compose" }
 compose-material = { module = "androidx.compose.material:material", version.ref = "compose" }
-compose-material3 = "androidx.compose.material3:material3:1.0.0-alpha10"
+compose-material3 = "androidx.compose.material3:material3:1.0.0-alpha11"
 compose-ui = { module = "androidx.compose.ui:ui", version.ref = "compose" }
 compose-ui-tooling = { module = "androidx.compose.ui:ui-tooling", version.ref = "compose" }
 compose-ui-tooling-preview = { module = "androidx.compose.ui:ui-tooling-preview", version.ref = "compose" }
