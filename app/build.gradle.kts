@@ -38,7 +38,7 @@ dependencies {
 
   implementation(libs.accompanist.insets)
   implementation(libs.accompanist.systemui)
-  implementation(libs.androidx.core)
+  implementation(libs.androidx.core.ktx)
   implementation(libs.androidx.lifecycle.ktx)
   implementation(libs.compose.activity)
   implementation(libs.compose.material3)

@@ -1,9 +1,10 @@
 [versions]
-compose = "1.2.0-beta01"
 apollo = "3.3.0"
-kotlin = "1.6.21"
+compose = "1.2.0-beta01"
 coroutines = "1.6.1"
 dagger = "2.42"
+kotlin = "1.6.21"
+lifecycle = "2.4.1"
 
 [libraries]
 # build dependencies
@@ -24,9 +25,14 @@ build-dependencyanalysis = "com.autonomousapps:dependency-analysis-gradle-plugin
 accompanist-insets = "com.google.accompanist:accompanist-insets:0.23.1"
 accompanist-systemui = "com.google.accompanist:accompanist-systemuicontroller:0.23.1"
 
-androidx-core = "androidx.core:core-ktx:1.7.0"
+androidx-core-ktx = "androidx.core:core-ktx:1.7.0"
+androidx-customview = "androidx.customview:customview:1.2.0-alpha01"
+androidx-customview-poolingcontainer = "androidx.customview:customview-poolingcontainer:1.0.0-alpha01"
+
 androidx-datastore-prefs-core = "androidx.datastore:datastore-preferences-core:1.0.0"
-androidx-lifecycle-ktx = "androidx.lifecycle:lifecycle-runtime-ktx:2.4.1"
+androidx-lifecycle-ktx = { module = "androidx.lifecycle:lifecycle-runtime-ktx", version.ref = "lifecycle" }
+androidx-lifecycle-viewmodel-ktx = { module = "androidx.lifecycle:lifecycle-viewmodel-ktx", version.ref = "lifecycle" }
+androidx-lifecycle-viewmodel-savedstate = { module = "androidx.lifecycle:lifecycle-viewmodel-savedstate", version.ref = "lifecycle" }
 androidx-palette = "androidx.palette:palette:1.0.0"
 
 apollo-runtime = { module = "com.apollographql.apollo3:apollo-runtime", version.ref = "apollo" }

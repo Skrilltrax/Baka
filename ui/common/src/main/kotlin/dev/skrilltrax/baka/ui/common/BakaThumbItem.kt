@@ -15,7 +15,6 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import coil.compose.rememberAsyncImagePainter
-import coil.compose.rememberImagePainter
 import coil.request.ImageRequest
 
 @Composable
@@ -24,11 +23,18 @@ fun BakaThumbItem(thumbUrl: String, desc: String) {
     Card(shape = RoundedCornerShape(8.dp)) {
       Box(modifier = Modifier.size(height = 128.dp, width = 96.dp)) {
         Image(
-          painter = rememberAsyncImagePainter(
-            ImageRequest.Builder(LocalContext.current).data(data = thumbUrl).apply(block = fun ImageRequest.Builder.() {
-              crossfade(true)
-            }).build()
-          ),
+          painter =
+            rememberAsyncImagePainter(
+              ImageRequest.Builder(LocalContext.current)
+                .data(data = thumbUrl)
+                .apply(
+                  block =
+                    fun ImageRequest.Builder.() {
+                      crossfade(true)
+                    }
+                )
+                .build()
+            ),
           contentDescription = desc,
           modifier = Modifier.fillMaxSize(),
           contentScale = ContentScale.Crop

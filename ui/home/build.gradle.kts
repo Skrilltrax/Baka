@@ -14,6 +14,7 @@ tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().configureEach 
 
 dependencies {
   implementation(projects.ui.common)
+  implementation(projects.data.model)
 
   implementation(libs.accompanist.insets)
   implementation(libs.compose.material3)
@@ -21,4 +22,11 @@ dependencies {
   implementation(libs.coil.compose)
 
   debugImplementation(libs.compose.ui.tooling)
+
+  // required to make preview work on library modules
+  debugImplementation(libs.androidx.core.ktx)
+  debugImplementation(libs.androidx.lifecycle.viewmodel.ktx)
+  debugImplementation(libs.androidx.lifecycle.viewmodel.savedstate)
+  debugImplementation(libs.androidx.customview)
+  debugImplementation(libs.androidx.customview.poolingcontainer)
 }

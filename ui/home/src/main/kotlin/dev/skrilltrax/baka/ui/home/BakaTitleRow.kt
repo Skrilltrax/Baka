@@ -11,7 +11,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import dev.skrilltrax.baka.ui.common.BakaThumbItem
 
-@Preview()
+@Preview
 @Composable
 fun BakaTitleRow(title: String = "CURRENTLY TRENDING") {
   Column(modifier = Modifier.padding(start = 16.dp)) {
