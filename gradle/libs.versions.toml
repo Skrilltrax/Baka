@@ -1,6 +1,6 @@
 [versions]
 compose = "1.2.0-beta02"
-apollo = "3.3.0"
+apollo = "3.6.2"
 kotlin = "1.6.21"
 coroutines = "1.6.1"
 dagger = "2.42"
