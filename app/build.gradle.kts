@@ -14,7 +14,7 @@ android {
     versionName = "0.1.0"
   }
   buildFeatures { compose = true }
-  composeOptions { kotlinCompilerExtensionVersion = libs.versions.compose.get() }
+  composeOptions { kotlinCompilerExtensionVersion = libs.versions.compiler.get() }
 }
 
 secrets {
