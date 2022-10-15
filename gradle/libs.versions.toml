@@ -10,7 +10,7 @@ dagger = "2.42"
 build-agp = "com.android.tools.build:gradle:7.2.1"
 build-binarycompat = "org.jetbrains.kotlinx:binary-compatibility-validator:0.10.0"
 build-dokka = { module = "org.jetbrains.dokka:dokka-gradle-plugin", version.ref = "kotlin" }
-build-download = "de.undercouch:gradle-download-task:5.1.0"
+build-download = "de.undercouch:gradle-download-task:5.3.0"
 build-apollo-graphql = { module = "com.apollographql.apollo3:apollo-gradle-plugin", version.ref = "apollo" }
 build-hilt = "com.google.dagger:hilt-android-gradle-plugin:2.42"
 build-kotlin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
