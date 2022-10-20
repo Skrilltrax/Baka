@@ -2,7 +2,7 @@ plugins {
   id("dev.skrilltrax.baka.android-application")
   id("dev.skrilltrax.baka.kotlin-android")
   id("dev.skrilltrax.baka.secrets-plugin")
-  id("com.squareup.anvil") version "2.4.0"
+  id("com.squareup.anvil") version "2.4.2"
   id("com.google.android.libraries.mapsplatform.secrets-gradle-plugin") version "2.0.1"
   kotlin("kapt")
 }
@@ -14,7 +14,7 @@ android {
     versionName = "0.1.0"
   }
   buildFeatures { compose = true }
-  composeOptions { kotlinCompilerExtensionVersion = libs.versions.compose.get() }
+  composeOptions { kotlinCompilerExtensionVersion = libs.versions.compiler.get() }
 }
 
 secrets {
