@@ -1,3 +1,5 @@
+@file:Suppress("UnstableApiUsage")
+
 plugins {
   id("dev.skrilltrax.baka.android-application")
   id("dev.skrilltrax.baka.kotlin-android")
@@ -13,8 +15,12 @@ android {
     versionCode = 1
     versionName = "0.1.0"
   }
-  buildFeatures { compose = true }
+  buildFeatures {
+    buildConfig = true
+    compose = true
+  }
   composeOptions { kotlinCompilerExtensionVersion = libs.versions.compiler.get() }
+  namespace = "dev.skrilltrax.baka"
 }
 
 secrets {

@@ -8,7 +8,7 @@ dagger = "2.44"
 
 [libraries]
 # build dependencies
-build-agp = "com.android.tools.build:gradle:7.3.1"
+build-agp = "com.android.tools.build:gradle:8.0.0-alpha05"
 build-binarycompat = "org.jetbrains.kotlinx:binary-compatibility-validator:0.10.0"
 build-dokka = { module = "org.jetbrains.dokka:dokka-gradle-plugin", version.ref = "kotlin" }
 build-download = "de.undercouch:gradle-download-task:5.3.0"
