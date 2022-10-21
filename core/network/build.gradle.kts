@@ -2,10 +2,8 @@ plugins {
   kotlin("jvm")
   id("dev.skrilltrax.baka.kotlin-library")
   id("dev.skrilltrax.baka.graphql")
-  id("com.squareup.anvil") version "2.4.2"
+  id("dev.skrilltrax.baka.anvil")
 }
-
-anvil { generateDaggerFactories.set(true) }
 
 dependencies {
   implementation(projects.core.auth)
