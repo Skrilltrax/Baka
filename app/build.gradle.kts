@@ -1,11 +1,15 @@
+@file:Suppress("UnstableApiUsage")
+
 plugins {
   id("dev.skrilltrax.baka.android-application")
+  id("dev.skrilltrax.baka.anvil")
   id("dev.skrilltrax.baka.kotlin-android")
   id("dev.skrilltrax.baka.secrets-plugin")
-  id("com.squareup.anvil") version "2.4.2"
   id("com.google.android.libraries.mapsplatform.secrets-gradle-plugin") version "2.0.1"
   kotlin("kapt")
 }
+
+anvil { generateDaggerFactories.set(false) }
 
 android {
   defaultConfig {
