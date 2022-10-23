@@ -1,3 +1,5 @@
+@file:Suppress("UnstableApiUsage")
+
 plugins {
   id("dev.skrilltrax.baka.android-library")
   id("dev.skrilltrax.baka.kotlin-android")
@@ -6,6 +8,7 @@ plugins {
 android {
   buildFeatures { compose = true }
   composeOptions { kotlinCompilerExtensionVersion = libs.versions.compiler.get() }
+  namespace = "dev.skrilltrax.baka.ui.common"
 }
 
 dependencies {

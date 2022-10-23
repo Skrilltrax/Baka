@@ -17,8 +17,12 @@ android {
     versionCode = 1
     versionName = "0.1.0"
   }
-  buildFeatures { compose = true }
+  buildFeatures {
+    buildConfig = true
+    compose = true
+  }
   composeOptions { kotlinCompilerExtensionVersion = libs.versions.compiler.get() }
+  namespace = "dev.skrilltrax.baka"
 }
 
 secrets {

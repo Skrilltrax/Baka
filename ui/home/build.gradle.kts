@@ -6,6 +6,7 @@ plugins {
 android {
   buildFeatures { compose = true }
   composeOptions { kotlinCompilerExtensionVersion = libs.versions.compiler.get() }
+  namespace = "dev.skrilltrax.baka.ui.home"
 }
 
 dependencies {
