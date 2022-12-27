@@ -27,7 +27,7 @@ build-dependencyanalysis = "com.autonomousapps:dependency-analysis-gradle-plugin
 accompanist-insets = "com.google.accompanist:accompanist-insets:0.23.1"
 accompanist-systemui = "com.google.accompanist:accompanist-systemuicontroller:0.23.1"
 
-androidx-core = "androidx.core:core-ktx:1.7.0"
+androidx-core = "androidx.core:core-ktx:1.9.0"
 androidx-datastore-prefs-core = "androidx.datastore:datastore-preferences-core:1.0.0"
 androidx-lifecycle-ktx = "androidx.lifecycle:lifecycle-runtime-ktx:2.5.1"
 
