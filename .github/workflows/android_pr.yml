@@ -23,7 +23,7 @@ jobs:
           cache: 'gradle'
 
       - name: Check codestyle
-        uses: gradle/gradle-build-action@v2.3.2
+        uses: gradle/gradle-build-action@v2.3.3
         with:
           arguments: --no-configuration-cache spotlessCheck
 
@@ -43,7 +43,7 @@ jobs:
           cache: 'gradle'
 
       - name: Run unit tests
-        uses: gradle/gradle-build-action@v2.3.2
+        uses: gradle/gradle-build-action@v2.3.3
         with:
           arguments: --no-configuration-cache test
 
@@ -70,7 +70,7 @@ jobs:
           cache: 'gradle'
 
       - name: Build debug APKs
-        uses: gradle/gradle-build-action@v2.3.2
+        uses: gradle/gradle-build-action@v2.3.3
         with:
           arguments: --no-configuration-cache assembleDebug
 
@@ -90,7 +90,7 @@ jobs:
           cache: 'gradle'
 
       - name: Run Lint on debug variants
-        uses: gradle/gradle-build-action@v2.3.2
+        uses: gradle/gradle-build-action@v2.3.3
         with:
           arguments: --no-configuration-cache lintDebug
 
@@ -110,7 +110,7 @@ jobs:
           cache: 'gradle'
 
       - name: Generate coverage reports with kotlinx-kover
-        uses: gradle/gradle-build-action@v2.3.2
+        uses: gradle/gradle-build-action@v2.3.3
         with:
           arguments: --no-configuration-cache koverXmlReport
 
