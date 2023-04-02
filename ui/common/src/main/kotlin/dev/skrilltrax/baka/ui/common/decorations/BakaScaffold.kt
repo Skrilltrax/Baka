@@ -11,7 +11,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.input.nestedscroll.nestedScroll
-import dev.skrilltrax.baka.ui.common.BakaAppBar
 import dev.skrilltrax.baka.ui.common.navigation.BakaDestination
 
 @Composable
@@ -23,13 +22,11 @@ fun BakaScaffold(
   val decayAnimationSpec = rememberSplineBasedDecay<Float>()
   val destinations = remember { BakaDestination.values().toList() }
   val scrollBehavior =
-    remember(decayAnimationSpec) {
-      TopAppBarDefaults.exitUntilCollapsedScrollBehavior(decayAnimationSpec)
-    }
+    TopAppBarDefaults.exitUntilCollapsedScrollBehavior(flingAnimationSpec = decayAnimationSpec)
 
   Scaffold(
     modifier = modifier.nestedScroll(scrollBehavior.nestedScrollConnection),
-    topBar = { BakaAppBar(title = title, scrollBehavior = scrollBehavior) },
+    topBar = { BakaAppBar(title = title) },
     bottomBar = { BakaNavigationBar(destinations) },
     content = content,
   )
