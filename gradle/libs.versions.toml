@@ -67,4 +67,4 @@ testing-kotlin-coroutines = { module = "org.jetbrains.kotlinx:kotlinx-coroutines
 testing-kotlin-junit = { module = "org.jetbrains.kotlin:kotlin-test-junit", version.ref = "kotlin" }
 
 [plugins]
-square-anvil = { id = "com.squareup.anvil", version = "2.4.3" }
+square-anvil = { id = "com.squareup.anvil", version = "2.4.4" }
