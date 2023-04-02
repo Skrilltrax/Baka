@@ -58,7 +58,7 @@ square-logcat = "com.squareup.logcat:logcat:0.1"
 thirdparty-kotlin-result = "com.michael-bull.kotlin-result:kotlin-result:1.1.16"
 thirdparty-leakcanary = "com.squareup.leakcanary:leakcanary-android:2.9.1"
 
-testing-espresso-core = "androidx.test.espresso:espresso-core:3.4.0"
+testing-espresso-core = "androidx.test.espresso:espresso-core:3.5.1"
 testing-junit = "junit:junit:4.13.2"
 testing-junit-ext = "androidx.test.ext:junit:1.1.5"
 testing-junit-ui = "androidx.compose.ui:ui-test-junit4:1.2.1"
