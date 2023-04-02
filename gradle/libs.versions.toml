@@ -13,7 +13,7 @@ build-agp = "com.android.tools.build:gradle:8.0.0-alpha05"
 build-anvil = { module = "com.squareup.anvil:gradle-plugin", version.ref = "anvil" }
 build-binarycompat = "org.jetbrains.kotlinx:binary-compatibility-validator:0.10.0"
 build-dokka = { module = "org.jetbrains.dokka:dokka-gradle-plugin", version.ref = "kotlin" }
-build-download = "de.undercouch:gradle-download-task:5.3.0"
+build-download = "de.undercouch:gradle-download-task:5.4.0"
 build-apollo-graphql = { module = "com.apollographql.apollo3:apollo-gradle-plugin", version.ref = "apollo" }
 build-hilt = "com.google.dagger:hilt-android-gradle-plugin:2.45"
 build-kotlin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
