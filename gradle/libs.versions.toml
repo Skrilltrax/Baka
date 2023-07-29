@@ -36,7 +36,7 @@ apollo-cache-memory = { module = "com.apollographql.apollo3:apollo-normalized-ca
 apollo-cache-sqlite = { module = "com.apollographql.apollo3:apollo-normalized-cache-sqlite", version.ref = "apollo" }
 
 compose-activity = "androidx.activity:activity-compose:1.7.0"
-compose-compiler = "androidx.compose.compiler:compiler:1.4.4"
+compose-compiler = "androidx.compose.compiler:compiler:1.5.1"
 compose-foundation = { module = "androidx.compose.foundation:foundation", version.ref = "compose" }
 compose-foundation-layout = { module = "androidx.compose.foundation:foundation-layout", version.ref = "compose" }
 compose-material = { module = "androidx.compose.material:material", version.ref = "compose" }
