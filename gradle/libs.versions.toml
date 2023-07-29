@@ -9,7 +9,7 @@ dagger = "2.47"
 
 [libraries]
 # build dependencies
-build-agp = "com.android.tools.build:gradle:8.1.0-alpha11"
+build-agp = "com.android.tools.build:gradle:8.1.0"
 build-anvil = { module = "com.squareup.anvil:gradle-plugin", version.ref = "anvil" }
 build-binarycompat = "org.jetbrains.kotlinx:binary-compatibility-validator:0.10.0"
 build-dokka = { module = "org.jetbrains.dokka:dokka-gradle-plugin", version.ref = "kotlin" }
