@@ -50,7 +50,7 @@ coil-kt-compose = "io.coil-kt:coil-compose:1.4.0"
 dagger = { module = "com.google.dagger:dagger", version.ref = "dagger" }
 dagger-compiler = { module = "com.google.dagger:dagger-compiler", version.ref = "dagger" }
 
-material = "com.google.android.material:material:1.8.0"
+material = "com.google.android.material:material:1.9.0"
 
 square-logging-interceptor = "com.squareup.okhttp3:logging-interceptor:4.10.0"
 square-logcat = "com.squareup.logcat:logcat:0.1"
