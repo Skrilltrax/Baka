@@ -61,7 +61,7 @@ thirdparty-leakcanary = "com.squareup.leakcanary:leakcanary-android:2.10"
 testing-espresso-core = "androidx.test.espresso:espresso-core:3.5.1"
 testing-junit = "junit:junit:4.13.2"
 testing-junit-ext = "androidx.test.ext:junit:1.1.5"
-testing-junit-ui = "androidx.compose.ui:ui-test-junit4:1.4.0"
+testing-junit-ui = "androidx.compose.ui:ui-test-junit4:1.4.3"
 testing-kotlin = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
 testing-kotlin-coroutines = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "coroutines" }
 testing-kotlin-junit = { module = "org.jetbrains.kotlin:kotlin-test-junit", version.ref = "kotlin" }
