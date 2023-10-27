@@ -14,6 +14,7 @@ dependencyResolutionManagement {
   repositories {
     google()
     mavenCentral()
+    maven("https://storage.googleapis.com/r8-releases/raw/main")
   }
   versionCatalogs { create("libs") { from(files("../gradle/libs.versions.toml")) } }
 }

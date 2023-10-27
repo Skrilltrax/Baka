@@ -1,10 +1,10 @@
 import com.android.build.gradle.TestedExtension
 
 extensions.configure<TestedExtension> {
-  setCompileSdkVersion(33)
+  setCompileSdkVersion(34)
   defaultConfig {
     minSdk = 23
-    targetSdk = 33
+    targetSdk = 34
   }
 
   sourceSets {
@@ -13,7 +13,6 @@ extensions.configure<TestedExtension> {
     named("androidTest") { java.srcDirs("src/androidTest/kotlin") }
   }
 
-  @Suppress("UnstableApiUsage")
   packagingOptions {
     resources.excludes.add("**/*.version")
     resources.excludes.add("**/*.txt")
@@ -24,12 +23,17 @@ extensions.configure<TestedExtension> {
   }
 
   compileOptions {
-    sourceCompatibility = JavaVersion.VERSION_11
-    targetCompatibility = JavaVersion.VERSION_11
+    isCoreLibraryDesugaringEnabled = true
+    sourceCompatibility = JavaVersion.VERSION_19
+    targetCompatibility = JavaVersion.VERSION_19
   }
 
   testOptions {
     animationsDisabled = true
     unitTests.isReturnDefaultValues = true
   }
+}
+
+dependencies {
+  "coreLibraryDesugaring"(libs.findLibrary("build.corelibdesugar").get())
 }

@@ -1,3 +1,4 @@
+import gradle.kotlin.dsl.accessors._55ef9d3df8a4e4470b89d25885343b54.javaToolchains
 import org.gradle.api.JavaVersion
 import org.gradle.api.tasks.compile.JavaCompile
 import org.gradle.api.tasks.testing.Test
@@ -11,16 +12,16 @@ val additionalCompilerArgs =
   )
 
 tasks.withType<JavaCompile>().configureEach {
-  sourceCompatibility = JavaVersion.VERSION_11.toString()
-  targetCompatibility = JavaVersion.VERSION_11.toString()
+  sourceCompatibility = JavaVersion.VERSION_19.toString()
+  targetCompatibility = JavaVersion.VERSION_19.toString()
 }
 
 tasks.withType<KotlinCompile>().configureEach {
   kotlinOptions {
-    allWarningsAsErrors = true
-    jvmTarget = JavaVersion.VERSION_11.toString()
+    jvmTarget = JavaVersion.VERSION_19.toString()
     freeCompilerArgs = freeCompilerArgs + additionalCompilerArgs
-    languageVersion = "1.6"
+    languageVersion = "1.9"
+    allWarningsAsErrors = false
   }
 }
 

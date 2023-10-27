@@ -28,8 +28,7 @@ import java.io.File
  *
  * Do NOT use the file outside of DataStore.
  *
- * @this the context of the application used to get the files directory
- * @fileName the file name
+ * @this the context of the application used to get the files directory @fileName the file name
  */
 public fun dataStoreFile(filesDir: String, fileName: String): File =
   File(filesDir, "datastore/$fileName")

@@ -47,17 +47,16 @@ import kotlinx.coroutines.SupervisorJob
  * ```
  *
  * @param name The name of the preferences. The preferences will be stored in a file in the
- * "datastore/" subdirectory in the application context's files directory and is generated using
- * [preferencesDataStoreFile].
+ *   "datastore/" subdirectory in the application context's files directory and is generated using
+ *   [preferencesDataStoreFile].
  * @param corruptionHandler The corruptionHandler is invoked if DataStore encounters a
- * [androidx.datastore.core.CorruptionException] when attempting to read data. CorruptionExceptions
- * are thrown by serializers when data can not be de-serialized.
+ *   [androidx.datastore.core.CorruptionException] when attempting to read data.
+ *   CorruptionExceptions are thrown by serializers when data can not be de-serialized.
  * @param produceMigrations produce the migrations. The ApplicationContext is passed in to these
- * callbacks as a parameter. DataMigrations are run before any access to data can occur. Each
- * producer and migration may be run more than once whether or not it already succeeded (potentially
- * because another migration failed or a write to disk failed.)
+ *   callbacks as a parameter. DataMigrations are run before any access to data can occur. Each
+ *   producer and migration may be run more than once whether or not it already succeeded
+ *   (potentially because another migration failed or a write to disk failed.)
  * @param scope The scope in which IO operations and transform functions will execute.
- *
  * @return a property delegate that manages a datastore as a singleton.
  */
 @Suppress("MissingJvmstatic")
@@ -109,7 +108,9 @@ internal constructor(
               corruptionHandler = corruptionHandler,
               migrations = produceMigrations(),
               scope = scope
-            ) { preferencesDataStoreFile(filesDir, name) }
+            ) {
+              preferencesDataStoreFile(filesDir, name)
+            }
         }
         INSTANCE!!
       }
