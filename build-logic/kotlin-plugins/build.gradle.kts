@@ -7,12 +7,12 @@ plugins { `kotlin-dsl` }
 
 afterEvaluate {
   tasks.withType<JavaCompile>().configureEach {
-    sourceCompatibility = JavaVersion.VERSION_11.toString()
-    targetCompatibility = JavaVersion.VERSION_11.toString()
+    sourceCompatibility = JavaVersion.VERSION_19.toString()
+    targetCompatibility = JavaVersion.VERSION_19.toString()
   }
 
   tasks.withType<KotlinCompile>().configureEach {
-    kotlinOptions { jvmTarget = JavaVersion.VERSION_11.toString() }
+    kotlinOptions { jvmTarget = JavaVersion.VERSION_19.toString() }
   }
 }
 

@@ -24,10 +24,6 @@ fun BakaAuthScreen(onClick: () -> Unit, modifier: Modifier = Modifier) {
       text = stringResource(R.string.baka_auth_login_subtitle),
       modifier = Modifier.padding(2.dp)
     )
-    BakaAuthLabelText(
-      text = stringResource(R.string.baka_auth_login_label),
-      modifier = Modifier.padding(2.dp)
-    )
     Button(onClick = onClick, modifier = Modifier.fillMaxWidth(0.6f).padding(16.dp)) {
       Text(text = stringResource(R.string.login))
     }

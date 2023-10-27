@@ -11,11 +11,10 @@ fun Project.isSnapshot(): Boolean {
   }
 }
 
-@Suppress("UnstableApiUsage")
 android {
   val minifySwitch = project.providers.environmentVariable("DISABLE_MINIFY")
 
-  adbOptions.installOptions("--user 0")
+  adbOptions.setInstallOptions("--user 0")
 
   buildFeatures { buildConfig = true }
 

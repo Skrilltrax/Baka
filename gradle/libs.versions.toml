@@ -1,46 +1,49 @@
 [versions]
-anvil = "2.4.4"
-compose = "1.4.3"
-compiler = "1.4.4"
+anvil = "2.4.8"
+compose = "1.5.4"
+compiler = "1.5.3"
 apollo = "3.8.2"
-kotlin = "1.8.10"
+kotlin = "1.9.10"
 coroutines = "1.7.3"
 dagger = "2.47"
 
 [libraries]
 # build dependencies
-build-agp = "com.android.tools.build:gradle:8.1.0"
+build-agp = "com.android.tools.build:gradle:8.1.2"
 build-anvil = { module = "com.squareup.anvil:gradle-plugin", version.ref = "anvil" }
 build-binarycompat = "org.jetbrains.kotlinx:binary-compatibility-validator:0.10.0"
+build-cachefix = "org.gradle.android.cache-fix:org.gradle.android.cache-fix.gradle.plugin:3.0"
+build-corelibdesugar = "com.android.tools:desugar_jdk_libs:2.0.3"
 build-dokka = { module = "org.jetbrains.dokka:dokka-gradle-plugin", version.ref = "kotlin" }
 build-download = "de.undercouch:gradle-download-task:5.4.0"
 build-apollo-graphql = { module = "com.apollographql.apollo3:apollo-gradle-plugin", version.ref = "apollo" }
 build-hilt = "com.google.dagger:hilt-android-gradle-plugin:2.45"
 build-kotlin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
-build-kover = "org.jetbrains.kotlinx:kover:0.5.1"
-build-mavenpublish = "com.vanniktech:gradle-maven-publish-plugin:0.25.1"
+build-kover = "org.jetbrains.kotlinx.kover:org.jetbrains.kotlinx.kover.gradle.plugin:0.7.4"
+build-mavenpublish = "com.vanniktech:gradle-maven-publish-plugin:0.25.3"
 build-okhttp = "com.squareup.okhttp3:okhttp:4.11.0"
+build-r8 = "com.android.tools:r8:c765114c30df8ed3e5d1a84868d3ed1037549e85"
 build-semver = "com.vdurmont:semver4j:3.1.0"
-build-spotless = "com.diffplug.spotless:spotless-plugin-gradle:6.4.2"
+build-spotless = "com.diffplug.spotless:spotless-plugin-gradle:6.22.0"
 build-dependencyanalysis = "com.autonomousapps:dependency-analysis-gradle-plugin:1.20.0"
 
 accompanist-insets = "com.google.accompanist:accompanist-insets:0.23.1"
 accompanist-systemui = "com.google.accompanist:accompanist-systemuicontroller:0.23.1"
 
-androidx-core = "androidx.core:core-ktx:1.10.1"
+androidx-core = "androidx.core:core-ktx:1.12.0"
 androidx-datastore-prefs-core = "androidx.datastore:datastore-preferences-core:1.0.0"
-androidx-lifecycle-ktx = "androidx.lifecycle:lifecycle-runtime-ktx:2.6.1"
+androidx-lifecycle-ktx = "androidx.lifecycle:lifecycle-runtime-ktx:2.6.2"
 
 apollo-runtime = { module = "com.apollographql.apollo3:apollo-runtime", version.ref = "apollo" }
 apollo-cache-memory = { module = "com.apollographql.apollo3:apollo-normalized-cache", version.ref = "apollo" }
 apollo-cache-sqlite = { module = "com.apollographql.apollo3:apollo-normalized-cache-sqlite", version.ref = "apollo" }
 
-compose-activity = "androidx.activity:activity-compose:1.7.2"
-compose-compiler = "androidx.compose.compiler:compiler:1.5.1"
+compose-activity = "androidx.activity:activity-compose:1.8.0"
+compose-compiler = { module = "androidx.compose.compiler:compiler", version.ref = "compiler" }
 compose-foundation = { module = "androidx.compose.foundation:foundation", version.ref = "compose" }
 compose-foundation-layout = { module = "androidx.compose.foundation:foundation-layout", version.ref = "compose" }
 compose-material = { module = "androidx.compose.material:material", version.ref = "compose" }
-compose-material3 = "androidx.compose.material3:material3:1.1.1"
+compose-material3 = "androidx.compose.material3:material3:1.1.2"
 compose-ui = { module = "androidx.compose.ui:ui", version.ref = "compose" }
 compose-ui-tooling = { module = "androidx.compose.ui:ui-tooling", version.ref = "compose" }
 compose-ui-tooling-preview = { module = "androidx.compose.ui:ui-tooling-preview", version.ref = "compose" }
@@ -50,7 +53,7 @@ coil-kt-compose = "io.coil-kt:coil-compose:1.4.0"
 dagger = { module = "com.google.dagger:dagger", version.ref = "dagger" }
 dagger-compiler = { module = "com.google.dagger:dagger-compiler", version.ref = "dagger" }
 
-material = "com.google.android.material:material:1.9.0"
+material = "com.google.android.material:material:1.10.0"
 
 square-logging-interceptor = "com.squareup.okhttp3:logging-interceptor:4.11.0"
 square-logcat = "com.squareup.logcat:logcat:0.1"
@@ -61,10 +64,10 @@ thirdparty-leakcanary = "com.squareup.leakcanary:leakcanary-android:2.12"
 testing-espresso-core = "androidx.test.espresso:espresso-core:3.5.1"
 testing-junit = "junit:junit:4.13.2"
 testing-junit-ext = "androidx.test.ext:junit:1.1.5"
-testing-junit-ui = "androidx.compose.ui:ui-test-junit4:1.4.3"
+testing-junit-ui = "androidx.compose.ui:ui-test-junit4:1.5.4"
 testing-kotlin = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
 testing-kotlin-coroutines = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "coroutines" }
 testing-kotlin-junit = { module = "org.jetbrains.kotlin:kotlin-test-junit", version.ref = "kotlin" }
 
 [plugins]
-square-anvil = { id = "com.squareup.anvil", version = "2.4.4" }
+square-anvil = { id = "com.squareup.anvil", version.ref = "anvil" }
