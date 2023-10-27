@@ -34,6 +34,4 @@ extensions.configure<TestedExtension> {
   }
 }
 
-dependencies {
-  "coreLibraryDesugaring"(libs.findLibrary("build.corelibdesugar").get())
-}
+dependencies { "coreLibraryDesugaring"(libs.findLibrary("build.corelibdesugar").get()) }

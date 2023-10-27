@@ -19,7 +19,7 @@ jobs:
         uses: actions/setup-java@v3.12.0
         with:
           distribution: 'zulu'
-          java-version: '17'
+          java-version: '19'
           cache: 'gradle'
 
       - name: Check codestyle
@@ -39,7 +39,7 @@ jobs:
         uses: actions/setup-java@v3.12.0
         with:
           distribution: 'zulu'
-          java-version: '17'
+          java-version: '19'
           cache: 'gradle'
 
       - name: Run unit tests
@@ -66,7 +66,7 @@ jobs:
         uses: actions/setup-java@v3.12.0
         with:
           distribution: 'zulu'
-          java-version: '17'
+          java-version: '19'
           cache: 'gradle'
 
       - name: Build debug APKs
@@ -86,7 +86,7 @@ jobs:
         uses: actions/setup-java@v3.12.0
         with:
           distribution: 'zulu'
-          java-version: '17'
+          java-version: '19'
           cache: 'gradle'
 
       - name: Run Lint on debug variants
@@ -106,7 +106,7 @@ jobs:
         uses: actions/setup-java@v3.12.0
         with:
           distribution: 'zulu'
-          java-version: '17'
+          java-version: '19'
           cache: 'gradle'
 
       - name: Generate coverage reports with kotlinx-kover
