@@ -19,7 +19,7 @@ build-download = "de.undercouch:gradle-download-task:5.4.0"
 build-apollo-graphql = { module = "com.apollographql.apollo3:apollo-gradle-plugin", version.ref = "apollo" }
 build-hilt = "com.google.dagger:hilt-android-gradle-plugin:2.45"
 build-kotlin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
-build-kover = "org.jetbrains.kotlinx:kover:0.6.1"
+build-kover = "org.jetbrains.kotlinx.kover:org.jetbrains.kotlinx.kover.gradle.plugin:0.7.4"
 build-mavenpublish = "com.vanniktech:gradle-maven-publish-plugin:0.25.3"
 build-okhttp = "com.squareup.okhttp3:okhttp:4.11.0"
 build-r8 = "com.android.tools:r8:c765114c30df8ed3e5d1a84868d3ed1037549e85"
