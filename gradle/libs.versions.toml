@@ -5,7 +5,7 @@ compiler = "1.5.3"
 apollo = "3.8.2"
 kotlin = "1.9.10"
 coroutines = "1.7.3"
-dagger = "2.47"
+dagger = "2.50"
 
 [libraries]
 # build dependencies
