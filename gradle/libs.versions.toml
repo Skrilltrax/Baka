@@ -3,7 +3,7 @@ anvil = "2.4.8"
 compose = "1.5.4"
 compiler = "1.5.3"
 apollo = "3.8.2"
-kotlin = "1.9.10"
+kotlin = "1.9.22"
 coroutines = "1.7.3"
 dagger = "2.47"
 
