@@ -10,4 +10,5 @@ dependencies {
   implementation(libs.androidx.datastore.prefs.core)
   implementation(libs.apollo.runtime)
   implementation(libs.dagger)
+  implementation(libs.thirdparty.kotlin.result)
 }

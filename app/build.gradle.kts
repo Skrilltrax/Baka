@@ -48,6 +48,7 @@ dependencies {
   implementation(libs.accompanist.systemui)
   implementation(libs.androidx.core)
   implementation(libs.androidx.lifecycle.ktx)
+  implementation(libs.androidx.navigation.compose)
   implementation(libs.compose.activity)
   implementation(libs.compose.material3)
   implementation(libs.compose.ui)

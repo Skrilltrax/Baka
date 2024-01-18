@@ -1,8 +1,17 @@
-query GetAnime($id: Int!) {
-  media: Media(id: $id) {
-      ...media
-  }
+query GetAnimeById($id: Int!) {
+    media: Media(id: $id) {
+        ...media
+    }
 }
+
+query GetAnimeList($page: Int!, $perPage: Int!, $season: MediaSeason, $seasonYear: Int, $showAdult: Boolean, $sort: [MediaSort]) {
+    page: Page(page: $page, perPage: $perPage) {
+        media(sort: $sort, type: ANIME, isAdult: $showAdult, season: $season, seasonYear: $seasonYear) {
+            ...media
+        }
+    }
+}
+
 
 query GetTrendingAnime($page: Int!, $perPage: Int!, $showAdult: Boolean) {
     page: Page(page: $page, perPage: $perPage) {
