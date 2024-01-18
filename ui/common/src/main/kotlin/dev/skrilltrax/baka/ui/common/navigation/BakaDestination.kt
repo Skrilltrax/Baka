@@ -27,5 +27,9 @@ public enum class BakaDestination(
 
   companion object {
     val startDestination = Anime
+
+    public fun fromDisplayName(displayName: String?): BakaDestination {
+      return entries.find { it.displayName == displayName } ?: startDestination
+    }
   }
 }

@@ -11,9 +11,14 @@ import dev.skrilltrax.baka.ui.common.navigation.BakaDestination
 private val ContainerElevation = 3.0.dp
 
 @Composable
-fun BakaNavigationBar(destinations: List<BakaDestination>, modifier: Modifier = Modifier) {
+fun BakaNavigationBar(
+  destinations: List<BakaDestination>,
+  currentDestination: BakaDestination,
+  onNavigation: (oldDestination: BakaDestination, newDestination: BakaDestination) -> Unit,
+  modifier: Modifier = Modifier
+) {
   val surfaceColor = MaterialTheme.colorScheme.surface
-  var selectedItem by remember(destinations) { mutableStateOf(0) }
+  val selectedItem = remember(currentDestination) { destinations.indexOf(currentDestination) }
 
   Surface(modifier = modifier, color = surfaceColor, tonalElevation = ContainerElevation) {
     NavigationBar(modifier = modifier.navigationBarsPadding()) {
@@ -23,8 +28,8 @@ fun BakaNavigationBar(destinations: List<BakaDestination>, modifier: Modifier = 
         NavigationBarItem(
           icon = { Icon(imageVector = vectorIcon, contentDescription = null) },
           label = { Text(destination.displayName) },
-          selected = selectedItem == index,
-          onClick = { selectedItem = index }
+          selected = isSelected,
+          onClick = { onNavigation(currentDestination, destination) }
         )
       }
     }
@@ -34,5 +39,11 @@ fun BakaNavigationBar(destinations: List<BakaDestination>, modifier: Modifier = 
 @Preview
 @Composable
 fun PreviewBakaNavigationBar() {
-  BakaNavigationBar(BakaDestination.values().toList())
+  var currentDestination by remember { mutableStateOf(BakaDestination.startDestination) }
+
+  BakaNavigationBar(
+    destinations = BakaDestination.entries,
+    currentDestination = currentDestination,
+    onNavigation = { _, newDestination -> currentDestination = newDestination }
+  )
 }

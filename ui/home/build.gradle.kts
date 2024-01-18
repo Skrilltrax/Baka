@@ -10,8 +10,11 @@ android {
 }
 
 dependencies {
+  implementation(projects.ui.auth)
   implementation(projects.ui.common)
 
+  implementation(libs.androidx.navigation.compose)
+  implementation(libs.accompanist.insets)
   implementation(libs.accompanist.insets)
   implementation(libs.compose.material3)
   implementation(libs.compose.ui.tooling.preview)
