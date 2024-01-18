@@ -1,5 +1,5 @@
 [versions]
-anvil = "2.4.8"
+anvil = "2.4.9-1-8"
 compose = "1.5.4"
 compiler = "1.5.8"
 apollo = "3.8.2"
