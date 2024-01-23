@@ -23,7 +23,7 @@ build-mavenpublish = "com.vanniktech:gradle-maven-publish-plugin:0.26.0"
 build-okhttp = "com.squareup.okhttp3:okhttp:4.12.0"
 build-r8 = "com.android.tools:r8:c765114c30df8ed3e5d1a84868d3ed1037549e85"
 build-semver = "com.vdurmont:semver4j:3.1.0"
-build-spotless = "com.diffplug.spotless:spotless-plugin-gradle:6.22.0"
+build-spotless = "com.diffplug.spotless:spotless-plugin-gradle:6.25.0"
 build-dependencyanalysis = "com.autonomousapps:dependency-analysis-gradle-plugin:1.20.0"
 
 accompanist-insets = "com.google.accompanist:accompanist-insets:0.23.1"
