@@ -9,7 +9,6 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.navigation.NavGraph.Companion.findStartDestination
@@ -35,8 +34,7 @@ fun BakaHomeScreen(
   val navController = rememberNavController()
   val navBackStackEntry by navController.currentBackStackEntryAsState()
   val navDestination = navBackStackEntry?.destination
-  val currentDestination =
-    remember(navDestination) { BakaDestination.fromDisplayName(navDestination?.route) }
+  val currentDestination = BakaDestination.fromDisplayName(navDestination?.route)
 
   val navigateToDestination = { _: BakaDestination, newDestination: BakaDestination ->
     navController.navigate(newDestination.displayName) {
