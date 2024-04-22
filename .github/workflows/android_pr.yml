@@ -124,7 +124,7 @@ jobs:
 
       - name: Publish JaCoCo report to PR
         if: false
-        uses: madrapps/jacoco-report@v1.5
+        uses: madrapps/jacoco-report@v1.6
         with:
           paths: ${{ steps.coverage-export.outputs.REPORT_PATHS }}
           token: ${{ secrets.GITHUB_TOKEN }}
