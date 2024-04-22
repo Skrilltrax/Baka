@@ -27,13 +27,8 @@ class MainActivity : ComponentActivity() {
     setContent { BakaApp(isDarkTheme = isSystemInDarkTheme()) }
   }
 
-  override fun onNewIntent(intent: Intent?) {
+  override fun onNewIntent(intent: Intent) {
     super.onNewIntent(intent)
-    if (intent == null) {
-      setResult(RESULT_CANCELED)
-      finish()
-      return
-    }
 
     val uri = intent.data ?: return
     val stringUri = uri.toString()

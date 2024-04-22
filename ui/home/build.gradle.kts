@@ -10,6 +10,7 @@ android {
 }
 
 dependencies {
+  implementation(projects.data.model)
   implementation(projects.ui.auth)
   implementation(projects.ui.common)
 

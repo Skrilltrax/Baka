@@ -7,13 +7,15 @@ import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import dev.skrilltrax.baka.data.model.media.Media
 import dev.skrilltrax.baka.ui.common.BakaThumbItem
 
-@Preview()
 @Composable
-fun BakaTitleRow(title: String = "CURRENTLY TRENDING") {
+fun BakaTitleRow(
+  title: String,
+  itemList: List<Media>,
+) {
   Column(modifier = Modifier.padding(start = 16.dp)) {
     Text(text = title)
     LazyRow(
