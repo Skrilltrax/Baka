@@ -1,7 +1,7 @@
 [versions]
 anvil = "2.4.8"
 compose = "1.6.6"
-compiler = "1.5.12"
+compiler = "1.5.15"
 apollo = "3.8.2"
 kotlin = "1.9.23"
 coroutines = "1.7.3"
